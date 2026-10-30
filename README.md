@@ -20,9 +20,9 @@ To make this work, the project uses the following components:
 *   8-inch display
 *   1 TB NVMe SSD
 *   GNSS receiver and LoRa modules
-*   RTL-SDR receiver
+*   RTL-SDR receiver - later
 *   Custom power-management PCB and battery system
-*   Two separate GPS/LoRa tracker devices
+*   Two separate GPS/LoRa tracker devices - later
 
 **Project Goals**
 The main objective is to build a reliable, modular field computer that stays functional even when traditional communication infrastructure—like cell towers—is down.
