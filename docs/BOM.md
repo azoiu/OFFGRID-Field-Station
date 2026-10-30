@@ -14,6 +14,12 @@ The Temu product page is not accessible outside the Temu app. The matching SC001
 
 The 8-inch display panel is approximately 194 × 119 mm. It fits the internal footprint with its 194 mm side along the 255 mm side. Recommended layout: display in a custom 3D-printed lid frame; Raspberry Pi, SSD and power board in the base. The 85 mm is the total internal depth; the lid/base split is not published. Measure both depths before printing final mounts or choosing the battery. Do not assume all 85 mm is available in the base.
 
+## Case dimensions and layout
+
+The Temu product page is not accessible outside the Temu app. The matching SC001 manufacturer specification lists external dimensions of 280 × 230 × 98 mm and internal dimensions of **255 × 190 × 85 mm**: https://www.chinax.com/china-enclosure/pz691235a-moisture-proof-plastic-gun-case-dust-proof-waterproof-drop-resistant.html
+
+The 8-inch display panel is approximately 194 × 119 mm. It fits the internal footprint with its 194 mm side along the 255 mm side. Recommended layout: display in a custom 3D-printed lid frame; Raspberry Pi, SSD and power board in the base. The 85 mm is the total internal depth; the lid/base split is not published. Measure both depths before printing final mounts or choosing the battery. Do not assume all 85 mm is available in the base.
+
 ## Main station
 | Part | Qty. | Price incl. VAT | Shop |
 |---|---:|---:|---|
