@@ -1,146 +1,154 @@
-# OFFGRID v1 — Bill of Materials
+# OFFGRID – parts list
 
-Last reviewed: 30 October 2026. Prices are EUR incl. VAT where stated; shipping and checkout prices can change.
+This is the list of parts for the first version of OFFGRID. Prices are the ones I found while planning the build. They can change, so check the shop before ordering.
 
-## 1. Already owned
+## What I already have
 
-- SINOCASE SC001 hard case, bought from Temu seller sinocase
-- Main keyboard
+- SINOCASE SC001 case from Temu (seller: sinocase)
+- Keyboard
 - 3D printer
-- Two generic ESP32 development boards (not LoRa radios)
-- Some workshop cables and materials
+- Two ESP32 boards (these do not have LoRa)
+- Some cables and workshop parts
 
-## 2. Case and mechanical layout
+## The case
 
-The Temu listing itself is not publicly readable outside the Temu app. The matching SC001 manufacturer specification gives external dimensions **280 × 230 × 98 mm** and internal dimensions **255 × 190 × 85 mm**:
-https://www.chinax.com/china-enclosure/pz691235a-moisture-proof-plastic-gun-case-dust-proof-waterproof-drop-resistant.html
+The matching SC001 case specification gives these dimensions:
 
-User-estimated usable lower-case depth: **58 mm**. Use this as the current mechanical design constraint; do not change to a larger case. The proposed 2S4P battery candidate is about 44 mm thick, so it is potentially compatible, but reserve clearance for wiring, insulation, mounting and the case floor. The exact battery pack cross-section and the case's flat floor area must be checked against the physical parts before drilling or printing final mounts.
+- Outside: 280 × 230 × 98 mm
+- Inside: 255 × 190 × 85 mm
 
-The 8-inch panel is approximately 194 × 119 mm and fits the 255 × 190 mm internal footprint in the lid, with its 194 mm side along the 255 mm side. Mount the screen in a printed bezel in the lid. Put the Pi, SSD, power module and battery in the lower half. Keep the battery mechanically restrained and separated from sharp edges and hot components.
+[Case specifications](https://www.chinax.com/china-enclosure/pz691235a-moisture-proof-plastic-gun-case-dust-proof-waterproof-drop-resistant.html)
 
-## 3. Main station — selected parts
+I estimate that the bottom part has about 5.8 cm of usable depth. I want to keep this case, so the parts and mounts need to fit it.
 
-| Part | Qty. | Price incl. VAT | Supplier |
+The 8-inch screen is about 194 × 119 mm. It should fit in the lid. The Raspberry Pi, SSD, battery and power board will go in the bottom. Before making the mounts, I still need to check the actual space in the case and compare it with the parts.
+
+## Main station
+
+| Part | Qty. | Price | Shop |
 |---|---:|---:|---|
-| Raspberry Pi 5, 8 GB (TME SC1112) | 1 | €184.06 | https://www.tme.eu/si/sl/details/sc1112/raspberry-pi-mini-racunalniki/raspberry-pi/raspberry-pi-5-8gb-ram/ |
-| Official Raspberry Pi 512 GB SSD kit (SSD + M.2 HAT+) | 1 | €138.05 | https://www.tme.eu/si/sl/details/sc1676/raspberry-pi-dodatki/raspberry-pi/512gb-ssd-kit/ |
-| Raspberry Pi Active Cooler | 1 | €5.26 | https://www.tme.eu/si/en/details/sc1148/raspberry-pi-acessories/raspberry-pi/raspberry-pi-active-cooler/ |
-| Waveshare 8DP-CAPLCD 8-inch HDMI capacitive touchscreen, 1280×800 | 1 | €93.50 (listing; stock notification shown) | https://opencircuit.shop/product/8inch-capacitive-touch-display-optical-bonding |
-| Heltec WiFi LoRa 32 V3 EU868 | 1 | €22.95 | https://hexaspot.com/collections/heltec/products/heltec-wifi-lora-32-v3 |
-| u-blox M10 GPS board with active antenna | 1 | €16.40 | https://www.neven7.eu/p/ublox-m10-gps-module-with-an-active-antenna |
-| Geekworm Pi5-5V5APD 5.1 V / 5 A USB-C PD power module | 1 | price/stock to confirm | https://wiki.geekworm.com/Pi5-5V5APD |
+| Raspberry Pi 5, 8 GB | 1 | €184.06 | [TME](https://www.tme.eu/si/sl/details/sc1112/raspberry-pi-mini-racunalniki/raspberry-pi/raspberry-pi-5-8gb-ram/) |
+| Official 512 GB SSD kit (includes M.2 HAT+) | 1 | €138.05 | [TME](https://www.tme.eu/si/sl/details/sc1676/raspberry-pi-dodatki/raspberry-pi/512gb-ssd-kit/) |
+| Raspberry Pi Active Cooler | 1 | €5.26 | [TME](https://www.tme.eu/si/en/details/sc1148/raspberry-pi-acessories/raspberry-pi/raspberry-pi-active-cooler/) |
+| Waveshare 8-inch HDMI touchscreen | 1 | €93.50* | [Opencircuit](https://opencircuit.shop/product/8inch-capacitive-touch-display-optical-bonding) |
+| Heltec WiFi LoRa 32 V3, EU868 | 1 | €22.95 | [Hexaspot](https://hexaspot.com/collections/heltec/products/heltec-wifi-lora-32-v3) |
+| u-blox M10 GPS with antenna | 1 | €16.40 | [Neven7](https://www.neven7.eu/p/ublox-m10-gps-module-with-an-active-antenna) |
 
-The SSD kit already includes the M.2 HAT+; do not buy another HAT+. Check the HAT+ and Active Cooler physical clearance using the official guide before final assembly. Main display uses HDMI for video and USB for touch; add one short **micro-HDMI-to-HDMI cable** and one USB-A-to-USB-C data cable for touch. The screen is specified at 5 V / approximately 4 W; power it from a separate regulated 5 V branch, not from the Pi's USB port.
+*The display listing showed a stock notification when I checked. Check availability before ordering.
 
-The GPS module supports GPS, Galileo, GLONASS and BeiDou. Its supply range is 1.65–3.6 V: connect to 3.3 V only, never 5 V. Use UART initially. Keep its active antenna away from the LoRa antenna and display/power switching noise.
+The SSD kit already includes the M.2 HAT+, so I do not need to buy one separately. The screen uses HDMI for the picture and USB for touch. I will need a short micro-HDMI to HDMI cable and a USB data cable.
 
-The Geekworm Pi5-5V5APD accepts 9–24 V DC (or suitable USB-C PD input) and provides a genuine 5 V / 5 A USB-C PD output for the Pi. Manufacturer documentation requires **more than 30 W input** for full 5 A operation; a 27 W Raspberry Pi supply is not enough to guarantee full load. Feed it from the battery through a correctly designed regulated DC stage or use a compatible 12 V supply during bench testing. The board is 44 × 55 mm. Verify exact input version and mounting before ordering.
+The GPS board uses 3.3 V. It must not be connected to 5 V.
 
-## 4. Handheld LoRa terminal — selected parts
+## Handheld terminal
 
-| Part | Qty. | Price incl. VAT | Supplier |
+| Part | Qty. | Price | Shop |
 |---|---:|---:|---|
-| Heltec WiFi LoRa 32 V3 EU868 | 1 | €22.95 | https://hexaspot.com/collections/heltec/products/heltec-wifi-lora-32-v3 |
-| Waveshare ESP32-S3-Touch-LCD-2.8 capacitive touchscreen board, **V2** | 1 | approx. US$19.99–25.99 before shipping/tax; confirm checkout | https://www.waveshare.com/product/esp32-s3-touch-lcd-2.8.htm |
-| Small LiPo battery for handheld, 3.7 V with matching SH1.25-2 connector | 1 | choose after enclosure/runtime test | https://hexaspot.com/collections/heltec |
+| Heltec WiFi LoRa 32 V3, EU868 | 1 | €22.95 | [Hexaspot](https://hexaspot.com/collections/heltec/products/heltec-wifi-lora-32-v3) |
+| Waveshare ESP32-S3-Touch-LCD-2.8, V2 | 1 | About US$20–26, before shipping and tax | [Waveshare](https://www.waveshare.com/product/esp32-s3-touch-lcd-2.8.htm) |
 
-The Waveshare V2 is required: shipments changed to V2 in June 2026 and V2 uses the CST3530 touch controller (V1 uses CST328). Confirm V2 with the seller before ordering. The display board does not contain LoRa, hence the second Heltec board.
+The handheld will have a touchscreen and an on-screen keyboard. The Waveshare board does not have LoRa, so it needs the second Heltec board.
 
-Connect the two handheld boards using 3.3 V UART: Waveshare TXD GPIO43 → Heltec RX GPIO48; Waveshare RXD GPIO44 ← Heltec TX GPIO47; GND → GND. Do not join their 5 V pins. Verify silkscreen labels and board revision before soldering. The firmware and UART link still need to be developed and tested.
+I need the V2 version of the Waveshare screen. It uses a different touch controller from V1, so I should check the version with the seller before ordering.
 
-The Heltec V3 has integrated single-cell LiPo charging/management and a SH1.25-2 battery connector. Select a protected 3.7 V LiPo that physically fits the handheld enclosure; do not connect a 2S pack to this board.
+The two boards will communicate over UART using 3.3 V signals:
 
-## 5. Main battery and charging
+- Waveshare TX GPIO43 → Heltec RX GPIO48
+- Waveshare RX GPIO44 ← Heltec TX GPIO47
+- GND → GND
 
-**Selected battery specification for quoting (not yet a confirmed retail purchase):**
+I need to check the labels on the actual boards before soldering. The software for the handheld still needs to be written and tested.
 
-- 2S4P lithium-ion pack using eight matched 21700 cells
-- 7.4 V nominal, 8.4 V fully charged
-- 20 Ah / approximately 148 Wh
-- Integrated 2S BMS with balancing, overcharge, undervoltage, overcurrent, short-circuit and temperature protection
-- Target continuous discharge capability at least 10 A
-- Target pack dimensions around 142 mm long and 44 mm thick; manufacturer must provide the complete 3D dimensions including width, wires and connector
-- XT60 connector or a connector specified in the final power-board design
+## Battery
 
-Candidate manufacturer reference: ASOL 2S4P 20 Ah pack. It is an OEM/B2B quote product, not a normal EU retail listing. Request a sample quote, full dimensioned drawing, BMS datasheet, cell make/model, CE/RoHS/UN38.3/MSDS documents, shipping method and confirmation that the supplied charger is compatible:
-https://asolbattery.com/product/asol-21700-2s4p-7-4v-20000mah-cylindrical-li-ion-battery-pack/
+The current plan is to use a 2S4P Li-ion battery pack:
 
-**Charger candidate:** Fuyuang 8.4 V / 3 A 2S Li-ion charger, €22.70 incl. VAT, listed in stock:
-https://baterija.lt/lt/ikrovikliai-ir-maitinimo-saltiniai/2124-fuyuang-2s-li-ion-bateriju-ikroviklis-84v-3a.html
+- 7.4 V nominal voltage
+- 8.4 V when fully charged
+- Around 20 Ah / 148 Wh
+- Built-in 2S BMS with cell balancing and protection
+- Target thickness around 44 mm, so it may fit in the case
 
-Only order this charger after the battery supplier confirms that its CC/CV output and charge current are suitable for the exact pack and BMS. The charger does not replace the pack's BMS. Provide a dedicated charge socket and prevent operation/charging configurations that the final BMS and power design do not support.
+One possible pack is listed by [ASOL](https://asolbattery.com/product/asol-21700-2s4p-7-4v-20000mah-cylindrical-li-ion-battery-pack/). This is a manufacturer product, not a normal shop item. I need to ask them for the full dimensions, BMS details, cell type, safety documents and a price before deciding.
 
-A 148 Wh battery is a reasonable target for an approximately 10-hour design goal, but **10 hours is not guaranteed**. Runtime depends on screen brightness, CPU load, radio use, conversion losses and battery ageing. Measure real average power after assembly.
+A possible charger is the [Fuyuang 8.4 V / 3 A charger](https://baterija.lt/en/chargers-power-supply/2124-fuyuang-2s-li-ion-battery-charger-84v-3a.html). I should only buy it after the battery supplier confirms that it is suitable for the exact battery and BMS.
 
-## 6. Main power distribution — design requirements
+The aim is to get close to 10 hours of use. I will only know the real runtime after testing the finished device.
 
-The main power board is a custom PCB to be designed after the selected battery is confirmed. It must include:
+## Power
 
-- Battery input matched to the pack connector and 2S voltage range (6.0–8.4 V operating design range, subject to pack/BMS specification)
-- Main fuse close to battery positive, sized from measured maximum current and wire rating
-- DC-rated master switch
+The Pi 5 needs a stable 5.1 V supply. I am considering the [Geekworm Pi5-5V5APD](https://wiki.geekworm.com/Pi5-5V5APD) for powering it. It can provide up to 5 V / 5 A over USB-C, but it needs a suitable input supply. The input and battery wiring still need to be designed properly.
+
+I also need a separate 5 V supply for the main screen. The power board will be a custom PCB.
+
+The board should include:
+
+- A fuse close to the battery
+- Main power switch
 - Reverse-polarity protection
-- Protected 5.1 V / 5 A minimum supply path for the Pi (Geekworm module or an equivalent validated design with genuine USB-C 5 A signalling)
-- Separate regulated 5 V branch for the 8-inch display, rated for at least 1.5 A
-- 3.3 V regulated branch for GPS/peripherals if not powered from the Pi
-- Battery voltage/current measurement
-- Low-voltage warning and safe Pi shutdown signal
-- Locking connectors, strain relief, insulated terminals and thermal separation from the battery
+- Separate power outputs for the Pi and screen
+- Battery voltage and current monitoring
+- Low-battery warning and safe shutdown for the Pi
+- Suitable connectors and protection
 
-Do not buy a generic buck converter and assume it can power the Pi 5. The converter and USB-C PD/source signalling must be designed and tested as a system. Test with an electronic load and multimeter at full load before connecting the Pi. Do not charge the pack while it is powering the system until the battery/BMS supplier confirms that simultaneous charge and load is supported and the power-path design handles it.
+I should not connect the battery directly to the Pi or use a random buck converter. The power system needs to be tested with a multimeter and an electronic load before connecting the Pi.
 
-For bench testing, use a quality 12 V / 5 A (60 W) regulated supply into the Geekworm module, plus a separate suitable 5 V supply for the screen. A 27 W Pi supply is insufficient to test the Geekworm module at its full rated output.
+For early testing, I can use a suitable 12 V supply for the Geekworm board and a separate 5 V supply for the screen.
 
-## 7. Small parts and assembly materials
+## Other things I will need
 
-Buy only after checking workshop stock:
+I should check what I already have before buying these:
 
-- 1 × short micro-HDMI-to-HDMI cable (Pi 5 to main display)
-- 1 × USB-A-to-USB-C data cable (touch input)
-- 1 × 12 V / 5 A regulated bench PSU for testing the Geekworm module (or equivalent >30 W input source)
-- 1 × main battery fuse + holder, DC-rated and sized after current calculation
-- 1 × DC-rated master switch
-- 1 × panel-mount charging socket compatible with selected charger
-- 1 × battery connector pair matching selected pack (XT60 candidate)
-- 1 × suitable locking connector set for display and internal power branches
-- Appropriate stranded copper wire, selected by current and length; separate power and signal wiring
-- Heat-shrink tubing, cable ties, adhesive cable mounts, grommets and strain relief
-- M2.5 screws, nuts, spacers and inserts for Pi/display mounts
-- Thin insulating sheet / battery cradle and foam restraint
-- 3D-printed lid display bezel, Pi/SSD mount, battery cradle and handheld enclosure
+- Short micro-HDMI to HDMI cable
+- USB data cable for the touchscreen
+- Suitable 12 V power supply for testing
+- Battery fuse and holder
+- Main switch
+- Charging socket
+- Connectors for the battery and power cables
+- Suitable wires, heat-shrink and cable ties
+- Screws, nuts and spacers
+- Insulation and a battery holder
 
-Do not choose fuse rating, wire gauge or connector rating until the final power architecture and maximum input current are calculated.
+The fuse, wire thickness and connectors must be chosen after the final power design is ready.
 
-## 8. Current known price subtotal
+## Price so far
 
-Known EUR-priced core items (Pi, SSD kit, Active Cooler, main touchscreen listing, two Heltec V3 boards and GPS) total **€483.17 incl. VAT**. This is not the final project total. It excludes the handheld touchscreen, battery, charger, Geekworm power module, custom PCB, wiring, connectors, test PSU and shipping. The main display listing showed a stock notification; confirm availability before checkout.
+The parts with known prices add up to **€483.17**:
 
-## 9. Build sequence
+- Raspberry Pi 5
+- 512 GB SSD kit
+- Active Cooler
+- Main touchscreen
+- Two Heltec LoRa boards
+- GPS module
 
-1. Order core compute, storage, cooling, displays, LoRa and GPS only after checking live checkout prices and stock.
-2. Obtain battery manufacturer's quote and full mechanical/electrical documents; confirm it fits the 58 mm lower-case depth with clearance.
-3. Finalise power schematic, fuse/wire sizing, charging socket and power-path behaviour.
-4. Prototype and load-test the power system before connecting the Pi.
-5. Test HDMI/touch, GPS reception, LoRa link and handheld UART separately.
-6. Measure actual runtime at the intended screen brightness and workload.
-7. Only then print final mounts, drill the case and complete assembly.
+This does not include the handheld screen, battery, charger, power board, cables, connectors or shipping. It is not the final price of the whole project.
 
-## 10. Not in v1
+## What I still need to do
 
-RTL-SDR, separate GPS trackers, position history, large local language models and model training. Offline maps, local document search and a modest local assistant are the realistic target for a Pi 5 8 GB.
+1. Check the prices and availability before ordering.
+2. Get the battery dimensions and BMS information from the supplier.
+3. Finish the power-board design.
+4. Test the power supply before connecting the Pi.
+5. Test GPS, LoRa and the handheld screen.
+6. Make the 3D-printed mounts after checking the parts in the case.
+7. Measure the real battery runtime.
 
-## References
+## Later additions
 
-- SC001 matching dimensions: https://www.chinax.com/china-enclosure/pz691235a-moisture-proof-plastic-gun-case-dust-proof-waterproof-drop-resistant.html
-- Raspberry Pi 5: https://www.tme.eu/si/sl/details/sc1112/raspberry-pi-mini-racunalniki/raspberry-pi/raspberry-pi-5-8gb-ram/
-- Raspberry Pi SSD kit: https://www.tme.eu/si/sl/details/sc1676/raspberry-pi-dodatki/raspberry-pi/512gb-ssd-kit/
-- Raspberry Pi M.2 HAT+ installation: https://www.raspberrypi.com/documentation/accessories/m2-hat-plus.html
-- Waveshare main display: https://www.waveshare.com/wiki/8DP-CAPLCD
-- Waveshare handheld V2: https://docs.waveshare.com/ESP32-S3-Touch-LCD-2.8
-- Heltec V3: https://heltec.org/project/wifi-lora-32-v3/
-- Geekworm Pi5-5V5APD: https://wiki.geekworm.com/Pi5-5V5APD
-- u-blox M10 GPS listing: https://www.neven7.eu/p/ublox-m10-gps-module-with-an-active-antenna
-- ASOL 2S4P battery candidate: https://asolbattery.com/product/asol-21700-2s4p-7-4v-20000mah-cylindrical-li-ion-battery-pack/
-- Fuyuang 2S charger candidate: https://baterija.lt/lt/ikrovikliai-ir-maitinimo-saltiniai/2124-fuyuang-2s-li-ion-bateriju-ikroviklis-84v-3a.html
-- EU868 regional parameters: https://www.thethingsnetwork.org/docs/lorawan/regional-parameters/eu868/
+These are not part of the first version:
+
+- RTL-SDR receiver
+- Separate GPS trackers
+- Tracker location history
+
+For the first version, I want offline maps, GPS, LoRa messages and local document search to work reliably.
+
+## Useful links
+
+- [Raspberry Pi M.2 HAT+ guide](https://www.raspberrypi.com/documentation/accessories/m2-hat-plus.html)
+- [Waveshare 8-inch screen](https://www.waveshare.com/wiki/8DP-CAPLCD)
+- [Waveshare handheld screen documentation](https://docs.waveshare.com/ESP32-S3-Touch-LCD-2.8)
+- [Heltec WiFi LoRa 32 V3](https://heltec.org/project/wifi-lora-32-v3/)
+- [EU868 frequency rules](https://www.thethingsnetwork.org/docs/lorawan/regional-parameters/eu868/)
