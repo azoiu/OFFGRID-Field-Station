@@ -67,7 +67,7 @@ Candidate manufacturer reference: ASOL 2S4P 20 Ah pack. It is an OEM/B2B quote p
 https://asolbattery.com/product/asol-21700-2s4p-7-4v-20000mah-cylindrical-li-ion-battery-pack/
 
 **Charger candidate:** Fuyuang 8.4 V / 3 A 2S Li-ion charger, €22.70 incl. VAT, listed in stock:
-https://baterija.lt/lt/ikrovikliai-ir-maitinimo-saltiniai/2124-fuyuang-2s-li-ion-bateriju-ikrovilnik-84v-3a.html
+https://baterija.lt/lt/ikrovikliai-ir-maitinimo-saltiniai/2124-fuyuang-2s-li-ion-bateriju-ikroviklis-84v-3a.html
 
 Only order this charger after the battery supplier confirms that its CC/CV output and charge current are suitable for the exact pack and BMS. The charger does not replace the pack's BMS. Provide a dedicated charge socket and prevent operation/charging configurations that the final BMS and power design do not support.
 
@@ -142,5 +142,5 @@ RTL-SDR, separate GPS trackers, position history, large local language models an
 - Geekworm Pi5-5V5APD: https://wiki.geekworm.com/Pi5-5V5APD
 - u-blox M10 GPS listing: https://www.neven7.eu/p/ublox-m10-gps-module-with-an-active-antenna
 - ASOL 2S4P battery candidate: https://asolbattery.com/product/asol-21700-2s4p-7-4v-20000mah-cylindrical-li-ion-battery-pack/
-- Fuyuang 2S charger candidate: https://baterija.lt/lt/ikrovikliai-ir-maitinimo-saltiniai/2124-fuyuang-2s-li-ion-bateriju-ikrovilnik-84v-3a.html
+- Fuyuang 2S charger candidate: https://baterija.lt/lt/ikrovikliai-ir-maitinimo-saltiniai/2124-fuyuang-2s-li-ion-bateriju-ikroviklis-84v-3a.html
 - EU868 regional parameters: https://www.thethingsnetwork.org/docs/lorawan/regional-parameters/eu868/
