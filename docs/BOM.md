@@ -44,8 +44,6 @@ I will make the power-management board. It will include the power switch, fuse a
 - Fuse, switch, screws, spacers and mounting parts
 - Heat-shrink tubing and cable ties
 
-I will check what I already have before buying these parts.
-
 ## Current price estimate
 
 The parts with known prices add up to about **€483.17 including VAT**. This does not include the battery, charger, handheld touchscreen, power converter, custom board or small parts. Shipping is extra.
