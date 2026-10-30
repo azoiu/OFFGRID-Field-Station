@@ -1,106 +1,89 @@
-# OFFGRID – Seznam delov (BOM)
+# OFFGRID – Bill of Materials
 
-**Namen:** seznam delov za projekt OFFGRID za prijavo Fallen  
-**Posodobljeno:** 30. 10. 2026
+This is the practical shopping list for the first version of OFFGRID. I am keeping it focused on the parts needed for the portable offline computer, navigation and LoRa messaging. Prices are approximate **VAT-inclusive prices** found from European shops on 30 October 2026. Shipping may change the final total, and stock should be checked before ordering.
 
-Cene so informativne in so bile preverjene na spletnih straneh ob pripravi dokumenta. Pred naročilom preveri še zalogo, končno ceno in poštnino. Kjer cena ali izdelek še ni izbran, je to jasno označeno.
+## Parts I already have
 
-## Kaj že imam
+- SC001 hard case.
+- One keyboard for the main station.
+- 3D printer for brackets, mounts and custom plastic parts.
+- Some cables, switches and electronic parts (inventory still needs checking).
 
-- **SC001 kovček** – glavno ohišje za OFFGRID.
-- **2 ESP32 razvojni ploščici** – točen model še ni znan. Za zdaj ju ne štejem kot končni LoRa napravi.
-- **Tipkovnica** – za glavno OFFGRID postajo.
-- **3D tiskalnik** – z njim bom izdelal nosilce in pritrdilne dele.
-- Nekaj kablov, stikal in elektronskega materiala – zalogo moram še pregledati.
+I also have two general-purpose ESP32 boards, but they are not included in this shopping list and are not being counted as the final LoRa devices.
 
-## Kaj moram še kupiti
+## Main computer
 
-### 1. Farnell – glavno naročilo
+**Raspberry Pi 5 – 8 GB RAM (1 pc)**  
+Approx. **€184.06**. A suitable price was listed by TME; check stock and shipping before ordering.  
+[View at TME](https://www.tme.eu/si/sl/details/sc1112/raspberry-pi-mini-racunalniki/raspberry-pi/raspberry-pi-5-8gb-ram/)
 
-Poskusil bom čim več glavne elektronike naročiti skupaj pri Farnellu, da zmanjšam število poštnin.
+**Raspberry Pi 512 GB NVMe SSD Kit (1 pc)**  
+Approx. **€138.05** at TME. This kit already includes the official M.2 HAT+, so a second adapter is not needed.  
+[View at TME](https://www.tme.eu/si/sl/details/sc1676/raspberry-pi-dodatki/raspberry-pi/512gb-ssd-kit/)
 
-- **Raspberry Pi 5, 8 GB – 1 kos**  
-  Cena: **155,11 € brez DDV** (približno **189,23 € z 22 % DDV**).  
-  [Kupi pri Farnellu](https://si.farnell.com/raspberry-pi/rpi5-8gb-single/raspberry-pi-5-model-b-8gb-2-4ghz/dp/4256000)
+**Raspberry Pi Active Cooler (1 pc)**  
+Budget approx. **€6**. Needed to keep the Pi 5 cool during sustained use inside the case.  
+[Official product information](https://www.raspberrypi.com/products/active-cooler/)
 
-- **Raspberry Pi 512 GB NVMe SSD + M.2 HAT+ – 1 komplet**  
-  Cena: **112,67 € brez DDV** (približno **137,46 € z DDV**).  
-  To je komplet, zato dodatnega M.2 HAT+ ne potrebujem kupiti posebej.  
-  [Kupi pri Farnellu](https://si.farnell.com/raspberry-pi/sc1676/ssd-kit-nvme-512gb-rpi-5-board/dp/4550994)
+## Screen
 
-- **Raspberry Pi Active Cooler – 1 kos**  
-  Cena: **4,30 € brez DDV** (približno **5,25 € z DDV**).  
-  [Kupi pri Farnellu](https://si.farnell.com/raspberry-pi/sc1148/cooling-fan-raspberry-pi-5-model/dp/4263049)
+**Waveshare 8DP-CAPLCD, 8-inch HDMI touchscreen (1 pc)**  
+Approx. **€79.30** at RobotShop EU. 1280 × 800 IPS display with capacitive touch.  
+[View at RobotShop EU](https://eu.robotshop.com/products/waveshare-8inch-capacitive-touch-display-toughened-glass-1280x800-ips-hdmi)
 
-**Skupaj Farnell:** približno **272,08 € brez DDV oziroma 331,94 € z DDV**, brez poštnine.  
-Pri SSD kompletu preveri dobavni rok – na strani je lahko drugačen kot pri Raspberry Pi in hladilniku.
+The display uses HDMI for video and USB for touch. Check the package contents before buying extra cables; the previous supplier listing included the required cables/adapters.
 
-### 2. Zaslon – Grobotronics
+## LoRa messaging
 
-- **Waveshare 8DP-CAPLCD, 8-palčni zaslon na dotik – 1 kos**  
-  Ločljivost 1280 × 800, IPS, HDMI in kapacitivni dotik.  
-  Cena na strani: **86,80 €**.  
-  [Kupi pri Grobotronics](https://grobotronics.com/lcd-display-8-1280x800-ips-hdmi-interface-with-touch.html?sl=en)
+**Heltec WiFi LoRa 32 V3, EU868 version (2 pcs)**  
+Approx. **€25.35 each / €50.70 for two** at Nettigo. Each board includes an ESP32-S3, SX1262 LoRa radio, small OLED and an antenna. One is intended for the handheld terminal and one for the main station. Make sure the selected version is 868 MHz / EU868, not US915.  
+[View at Nettigo](https://nettigo.eu/products/heltec-wifi-lora-32-v3-868mhz-esp32-lora-oled-0-96)
 
-Zaslon ima v kompletu HDMI in USB kable ter nekaj adapterjev, zato jih ne kupujem še enkrat.
+The handheld terminal still needs a practical way to type free-form messages. The small OLED is only a display, not a keyboard. We need to choose a compact keyboard or another text-input method and design a case for it.
 
-### 3. LoRa komunikacija
+## Offline navigation
 
-Za LoRa želim dve napravi: eno povezano z Raspberry Pi in eno ročno napravo. Obe bosta uporabljali frekvenčni pas 868 MHz.
+**u-blox M10 GNSS module with active antenna (1 pc)**  
+Approx. **€16.40** at Neven7. It supports GPS, Galileo, GLONASS and BeiDou. This board uses UART/I2C, so it will need suitable wiring or a USB-to-UART adapter to connect to the Raspberry Pi.  
+[View at Neven7](https://www.neven7.eu/p/ublox-m10-gps-module-with-an-active-antenna)
 
-- **Heltec ESP32-S3 + SX1262 LoRa ploščica – 2 kosa**  
-  Ena bo za ročni terminal, druga pa kot LoRa radijska povezava z glavno postajo.  
-  Trenutna kandidatka: Heltec ploščica z OLED zaslonom.  
-  Cena na Hestore: približno **21,20 € brez DDV na kos** (približno **25,86 € z DDV**).  
-  Za dve: približno **42,40 € brez DDV oziroma 51,72 € z DDV**.  
-  [Poglej pri Hestore](https://www.hestore.eu/en/prod_10044569.html)
+## Power system
 
-- **Anteni za 868 MHz – 2 kosa**  
-  Cena: še ni izbrana. Anteni morata ustrezati priključkoma na izbranih ploščicah. Ne naročim ju, dokler ne potrdim točnega modela ploščice in priključka.
+The battery is not selected yet. It must fit the actual space inside the case and safely supply the computer and screen.
 
-- **Vnos besedila na ročnem terminalu**  
-  Potrebujem način za pisanje poljubnih sporočil, ne samo vnaprej določenih ukazov. Še odločiti se moram, ali bom uporabil majhno tipkovnico ali drug način vnosa. Cena še ni določena.
+Parts still needed:
+- Protected 12.8 V LiFePO4 battery with a suitable BMS.
+- Correct 14.6 V LiFePO4 charger for the chosen battery.
+- Efficient 5 V regulator with enough current for the Raspberry Pi 5 and screen. The final design must be sized from measured peak load; a small generic USB buck board is not suitable without checking its real rating.
+- Main power switch, correctly rated fuse, wiring and connectors.
+- Voltage/current monitoring for the custom power-management PCB.
 
-### 4. Navigacija
+A compact 12.8 V 6 Ah battery stores only about 77 Wh. That is unlikely to provide 10 hours once conversion losses and the Pi 5 plus screen are included. The 10-hour target needs a proper power budget and may require a larger battery. Do not order a battery until the case dimensions and power budget are confirmed.
 
-- **GNSS sprejemnik z anteno – 1 kos**  
-  Potreben za določanje položaja pri offline navigaciji. Izbrati moram še točen USB ali UART model.  
-  Cena in povezava: še nista določeni.
+## Small parts and workshop materials
 
-### 5. Napajanje
+Allow for:
+- Standoffs, screws, nuts and washers.
+- Cable ties, heat-shrink tubing and insulation.
+- Suitable connectors and wire.
+- 3D-printing filament for the screen frame, internal mounts and terminal enclosure.
+- A fuse holder and spare fuse.
 
-- **LiFePO4 baterija z zaščito/BMS – 1 kos**  
-  Baterija mora ustrezati prostoru v kovčku. Najprej moram izmeriti največjo dovoljeno dolžino, širino in debelino. Cilj je približno 10 ur delovanja, vendar moram to še preveriti z izračunom porabe.
+I will check the parts already in my workshop before buying these.
 
-- **Polnilnik za izbrano LiFePO4 baterijo – 1 kos**  
-  Kupim ga šele, ko izberem baterijo, da bo ustrezal njeni napetosti in načinu polnjenja.
+## What I will make myself
 
-- **DC-DC pretvornik na stabilnih 5 V – 1 kos**  
-  Za napajanje Raspberry Pi in zaslona. Izbrati ga moram glede na dejansko porabo; za Raspberry Pi 5 je treba zagotoviti dovolj toka tudi ob največji obremenitvi.
+- 3D-printed screen frame, internal brackets and mounts.
+- Custom power-management PCB.
+- OFFGRID software for offline maps, local document search/AI and LoRa messaging.
+- Enclosure and mounting parts for the handheld terminal.
 
-- **Varovalka, glavno stikalo, konektorji in žice**  
-  Del teh stvari mogoče že imam. Končne vrednosti in količine določim po načrtu napajanja.
+## Current price estimate
 
-- **Lastna PCB za upravljanje napajanja – 1 kos**  
-  Načrtoval jo bom sam. Izdelava in elektronske komponente bodo dodane v seznam, ko bo načrt vezja končan.
+The currently priced core parts come to approximately **€474.51**, before shipping and before the battery, charger, power converter, text-entry device and small hardware are added. This is a working estimate, not a final project budget.
 
-## Trenutni seštevek znanih cen
+Prices and stock can change. The cheapest option is not always the best choice for a device that must be reliable and safe to carry, especially for the battery and power electronics.
 
-- Farnell: približno **331,94 € z DDV**.
-- Zaslon Grobotronics: **86,80 €** po prikazani ceni.
-- Dve Heltec LoRa ploščici: približno **51,72 € z DDV**.
+## Not included in version 1
 
-**Skupaj znani deli: približno 470,46 €**, brez poštnine in brez še neizbranih delov (baterija, GNSS, anteni, tipkovnica za ročni terminal, napajalni pretvornik in drobni material).
-
-To še ni končna cena projekta. Ko izberem baterijo, GNSS in ostale dele, bom seznam dopolnil s točnimi povezavami in cenami.
-
-## Kaj bom izdelal sam
-
-- 3D natisnjene nosilce in pritrdilne elemente za kovček.
-- PCB za upravljanje napajanja.
-- Programsko opremo za offline navigacijo, lokalnega AI pomočnika in LoRa sporočanje.
-- Ohišje oziroma nosilec za ročni LoRa terminal, če bo potreben.
-
-## Opomba
-
-V različico OFFGRID v1 **ne spadajo** RTL-SDR sprejemnik in GPS/LoRa sledilniki. To so ideje za morebitno različico v2, zato jih v tem seznamu ne kupujem.
+RTL-SDR and the two GPS/LoRa tracking devices are reserved for a possible later version. They are not part of this shopping list.
