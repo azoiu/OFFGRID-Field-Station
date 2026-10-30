@@ -1,74 +1,69 @@
-# OFFGRID v1 – Simple Shopping List
+# OFFGRID v1 – Parts List
 
-This list covers Version 1 only. Prices are estimates including VAT, checked on 30 October 2026 where a live price was available. Stock and delivery costs can change.
+This is the parts list for the first version of OFFGRID. Prices include VAT where known. Prices and stock may change.
 
-## Already owned
+## Parts I already have
 
-- SC001 hard case
-- Main keyboard
+- SC001 case
+- Keyboard for the main station
 - 3D printer
-- Two general ESP32 development boards (not counted as the LoRa radios)
-- Some workshop materials and cables (inventory still needs checking)
+- Two ESP32 boards
+- Some cables and other workshop parts
 
-## Buy – main station
+## Main station
 
-| Part | Quantity | Estimated price | Where |
+| Part | Qty. | Price | Shop |
 |---|---:|---:|---|
 | Raspberry Pi 5, 8 GB | 1 | €184.06 | [TME](https://www.tme.eu/si/sl/details/sc1112/raspberry-pi-mini-racunalniki/raspberry-pi/raspberry-pi-5-8gb-ram/) |
-| Official Raspberry Pi 512 GB SSD kit (includes M.2 HAT+) | 1 | €138.05 | [TME](https://www.tme.eu/si/sl/details/sc1676/raspberry-pi-dodatki/raspberry-pi/512gb-ssd-kit/) |
+| Raspberry Pi 512 GB SSD kit (with M.2 HAT+) | 1 | €138.05 | [TME](https://www.tme.eu/si/sl/details/sc1676/raspberry-pi-dodatki/raspberry-pi/512gb-ssd-kit/) |
 | Raspberry Pi Active Cooler | 1 | €5.26 | [TME](https://www.tme.eu/si/en/details/sc1148/raspberry-pi-acessories/raspberry-pi/raspberry-pi-active-cooler/) |
-| Waveshare 8DP-CAPLCD, 8-inch touchscreen, 1280 × 800 | 1 | about €93.50 | [Opencircuit](https://opencircuit.shop/product/8inch-capacitive-touch-display-optical-bonding) |
+| Waveshare 8-inch touchscreen | 1 | about €93.50 | [Opencircuit](https://opencircuit.shop/product/8inch-capacitive-touch-display-optical-bonding) |
 | Heltec WiFi LoRa 32 V3, EU868 | 1 | about €22.95 | [Hexaspot](https://hexaspot.com/collections/heltec/products/heltec-wifi-lora-32-v3) |
-| u-blox M10 GNSS receiver board with active antenna | 1 | €16.40 (currently out of stock) | [Neven7](https://www.neven7.eu/p/ublox-m10-gps-module-with-an-active-antenna) |
+| u-blox M10 GPS board with antenna | 1 | €16.40 (out of stock) | [Neven7](https://www.neven7.eu/p/ublox-m10-gps-module-with-an-active-antenna) |
 
-## Buy – handheld terminal
+## Handheld terminal
 
-| Part | Quantity | Estimated price | Where |
+| Part | Qty. | Price | Shop |
 |---|---:|---:|---|
 | Heltec WiFi LoRa 32 V3, EU868 | 1 | about €22.95 | [Hexaspot](https://hexaspot.com/collections/heltec/products/heltec-wifi-lora-32-v3) |
-| Small text-input device | 1 | Not selected | Choose a compact Bluetooth keyboard or a small physical keypad before ordering |
+| Small touchscreen | 1 | Not chosen yet | To be selected |
 
-Both Heltec boards include an OLED screen and LoRa radio. The handheld still needs a practical way to enter messages. The keyboard/keypad choice also affects the handheld enclosure and firmware.
+I want to type messages on the handheld using an on-screen keyboard. The small touchscreen and its connection to the ESP32 still need to be chosen. The Heltec's built-in OLED is not a touchscreen.
 
-## Power system – battery deliberately left open
+## Battery and power
 
-- Battery: **not selected yet**. I am looking for a battery with suitable dimensions for the SC001 case.
-- Charger: **not selected yet**. It must match the final battery chemistry, voltage and charging current.
-- Custom power-management PCB: I will design and make it.
-- DC-DC power stage: design target is a stable 5.1 V supply for the Raspberry Pi 5 (up to 5 A) and a separate 5 V supply for the screen. The final converter/current rating will be chosen together with the battery and power PCB.
-- Add a correctly rated main fuse, master switch, battery-voltage/current monitoring, connectors and suitable wire. These will be integrated into the custom power board and wiring layout.
+The battery is not chosen yet. I am looking for one that fits inside the SC001 case. The charger will be chosen after the battery.
 
-The Raspberry Pi 5 officially recommends 5 V at 5 A. The screen uses 5 V and is rated at 4 W. The power system must therefore be designed for both loads, with enough margin. See the [Raspberry Pi power requirements](https://www.raspberrypi.com/documentation/computers/getting-started.html) and [Waveshare display specifications](https://www.waveshare.com/wiki/8DP-CAPLCD).
+I will make the power-management board. It will include the power switch, fuse and battery monitoring. The power supply must provide enough power for the Raspberry Pi and both screens.
 
-## Small parts and materials
+## Other parts
 
-- HDMI cable for the display (short, flexible cable)
-- USB cable for touchscreen input (short cable; display package includes connection cables/adapters)
-- GNSS connection wires and a suitable 3.3 V UART connection to the Raspberry Pi (confirm the exact board pinout before wiring)
-- LoRa antennas supplied with the Heltec boards
-- Suitable wire, connectors, heat-shrink tubing, insulation, cable ties and mounting screws/standoffs
-- Main power fuse and switch (final ratings depend on the selected battery and power design)
+- Short HDMI cable for the main screen
+- USB cable for the main touchscreen
+- Wires and connectors for GPS and LoRa
+- Fuse, switch, screws, spacers and mounting parts
+- Heat-shrink tubing and cable ties
 
-Check existing workshop stock before buying these small items to avoid duplicates.
+I will check what I already have before buying these parts.
 
-## Estimated cost (battery excluded)
+## Current price estimate
 
-The currently priced main components total about **€483.17 including VAT**, before shipping. This includes the two LoRa boards and the GNSS board at its listed price, even though the GNSS board is currently out of stock. It excludes the handheld keyboard/keypad, battery, charger, final DC-DC stage, custom PCB parts and small materials. This is a partial subtotal, not the final project price.
+The parts with known prices add up to about **€483.17 including VAT**. This does not include the battery, charger, handheld touchscreen, power converter, custom board or small parts. Shipping is extra.
 
-## What I will make
+## Parts I will make
 
-- Custom power-management PCB
-- 3D-printed screen frame and internal mounts
-- 3D-printed handheld enclosure
-- OFFGRID software and offline map setup
+- Power-management board
+- 3D-printed screen frame and mounts
+- 3D-printed handheld case
+- OFFGRID software and offline maps
 
-## Not part of Version 1
+## Later version
 
-RTL-SDR receiver, two separate GPS/LoRa trackers, tracker history and other radio-monitoring features are postponed to Version 2.
+The RTL-SDR receiver and separate GPS trackers are planned for a later version, not v1.
 
-## Still to decide before ordering everything
+## Still to choose
 
-1. Select a battery that physically fits the case; battery and charger are intentionally left open.
-2. Choose how messages will be typed on the handheld terminal.
-3. Replace the GNSS board if it remains out of stock, and confirm its connector/pinout before purchase.
-4. Measure the case interior and check the foam layout before fixing the screen, battery and mounts in place.
+- Battery that fits the case
+- Small touchscreen for the handheld
+- GPS board that is in stock
+- Power converter and charger
