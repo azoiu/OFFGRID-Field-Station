@@ -23,7 +23,7 @@ The screen will go in the lid. The Pi, SSD, battery and power electronics will g
 
 ## Current plan
 
-The parts I am considering are listed in [docs/BOM.md](docs/BOM.md). I am looking at a 2S Li-ion battery, but the battery and power system are not final yet.
+The parts and prices are in [BOM.csv](BOM.csv). More notes about the parts are in [docs/BOM.md](docs/BOM.md). I am looking at a 2S Li-ion battery, but the battery and power system are not final yet.
 
 My target is around 10 hours of runtime. I will have to measure the actual runtime once it is built.
 
