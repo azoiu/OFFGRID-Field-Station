@@ -53,7 +53,7 @@ Check existing workshop stock before buying these small items to avoid duplicate
 
 ## Estimated cost (battery excluded)
 
-The currently priced main components total about **€482.12 including VAT**, before shipping. This includes the two LoRa boards and the GNSS board at its listed price, even though the GNSS board is currently out of stock. It excludes the handheld keyboard/keypad, battery, charger, final DC-DC stage, custom PCB parts and small materials. This is a partial subtotal, not the final project price.
+The currently priced main components total about **€483.17 including VAT**, before shipping. This includes the two LoRa boards and the GNSS board at its listed price, even though the GNSS board is currently out of stock. It excludes the handheld keyboard/keypad, battery, charger, final DC-DC stage, custom PCB parts and small materials. This is a partial subtotal, not the final project price.
 
 ## What I will make
 
