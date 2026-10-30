@@ -1,32 +1,37 @@
 # OFFGRID
 
-OFFGRID is a portable computer in a rugged case. It is made to be useful outdoors and in places without internet or mobile signal.
+OFFGRID is a portable computer in a rugged case. It is designed for outdoor use and places without internet or mobile signal.
 
 ## Version 1
 
-The first version will have:
+The first version is planned to include:
 
 - Raspberry Pi 5 with 8 GB RAM
-- 512 GB SSD
-- 8-inch touchscreen
+- Official 512 GB NVMe SSD kit
+- 8-inch HDMI touchscreen
 - Offline maps and GPS for Slovenia
-- LoRa text messaging with a separate handheld device
-- A small local assistant for searching files and documents
+- LoRa text messaging with a separate handheld touchscreen terminal
+- Local document search
 - Rechargeable battery
-- 3D-printed mounts and case parts
+- Custom power-management board
+- 3D-printed mounts and enclosures
 
-The handheld device will use a small touchscreen and an on-screen keyboard to write messages.
+The handheld terminal uses a small touchscreen and an on-screen keyboard. It has a separate LoRa radio board.
 
-The battery has not been chosen yet. I am looking for one that fits inside the case. Battery life will be tested when the device is built.
+## Hardware decisions
+
+The main hardware choices are listed in [docs/BOM.md](docs/BOM.md). The battery pack is not selected yet. The preferred power architecture is a 2-cell Li-ion pack, subject to finding a suitable pack and validating its charger, protection and dimensions.
+
+The exact case model and usable internal dimensions still need to be confirmed before the final mechanical layout and battery can be approved. The 10-hour runtime target must be measured on the finished build.
 
 ## Later version
 
-These features can be added later:
+Possible later additions:
 
 - RTL-SDR receiver
 - Separate GPS trackers
-- Showing tracker locations and history
+- Tracker location and history
 
 ## Progress
 
-The parts are being selected and the design is in progress. See the [parts list](docs/BOM.md) for the current shopping list.
+The main components have been selected and the first power architecture is defined. Mechanical fit, battery selection, power-board validation and firmware tests remain. See the [parts list](docs/BOM.md) for the current shopping list.
