@@ -1,31 +1,37 @@
 # OFFGRID – Portable Field Intelligence Station
 
-OFFGRID is a rugged, portable field computer built to work entirely offline, meaning it doesn't need an internet connection or cellular service to function. The idea is to pack navigation, communication, local AI, radio monitoring, and cybersecurity tools into one single, self-contained device.
+OFFGRID is a rugged, portable field computer designed to work without internet or cellular service. It brings offline navigation, local tools and independent LoRa messaging into one portable case.
 
-**Key Features**
-*   **Core Hardware:** Powered by a Raspberry Pi 5 with 8 GB of RAM.
-*   **Offline Navigation:** Uses GPS positioning and pre-loaded offline maps of Slovenia.
-*   **Local AI:** Includes an AI assistant capable of searching through stored documents without needing the cloud.
-*   **LoRa Communication:** Allows for long-range messaging without relying on cellular networks.
-*   **GPS Tracking:** Comes with two independent GPS/LoRa trackers that send location data back to the main device.
-*   **SDR Radio:** Features software-defined radio for monitoring the spectrum and receiving permitted signals.
-*   **Cybersecurity:** Runs Kali Linux, making it a great tool for learning and authorized security testing.
-*   **Custom Electronics:** Includes a custom-designed PCB specifically for power management and system monitoring.
-*   **Build:** The whole system is integrated into a rugged carrying case for portability.
-*   **Battery Life:** The goal is to get around 10 hours of portable use on a single charge.
+## Version 1 – First working build
 
-**Hardware List**
-To make this work, the project uses the following components:
-*   Raspberry Pi 5 (8 GB)
-*   8-inch display
-*   1 TB NVMe SSD
-*   GNSS receiver and LoRa modules
-*   RTL-SDR receiver - later
-*   Custom power-management PCB and battery system
-*   Two separate GPS/LoRa tracker devices - later
+The first version will focus on the essential features:
 
-**Project Goals**
-The main objective is to build a reliable, modular field computer that stays functional even when traditional communication infrastructure—like cell towers—is down.
+- **Main computer:** Raspberry Pi 5 with 8 GB RAM.
+- **Storage:** 512 GB NVMe SSD.
+- **Display:** 8-inch HDMI touchscreen mounted in the lid of the SC001 case.
+- **Offline navigation:** GNSS receiver and preloaded OpenStreetMap data for Slovenia.
+- **LoRa messaging:** Long-range text communication between the main station and a separate handheld terminal, without mobile networks.
+- **Local AI and document search:** A local assistant that can search stored documents without cloud access, depending on performance and available memory.
+- **Power system:** Custom power-management PCB, rechargeable battery and monitoring.
+- **Portable construction:** 3D-printed mounts and a custom layout inside the rugged case.
 
-**Current Status**
-The project is currently in the planning and design phase. As things progress, more documentation, CAD files, PCB designs, and firmware/software will be uploaded.
+The initial battery-life target is around 10 hours, but this is not yet confirmed. Actual runtime will be measured after the hardware is assembled.
+
+## Version 2 – Future expansion
+
+The following features are intentionally postponed so the first version stays achievable and affordable:
+
+- **RTL-SDR receiver:** Software-defined radio for receiving and analysing permitted radio signals.
+- **Two independent GPS/LoRa trackers:** Separate devices that transmit their locations back to OFFGRID.
+- **Tracker interface:** Displaying the tracker positions and history on the main station.
+- **Further radio and field-monitoring features:** Additional modules can be added after the core system is stable.
+
+These features are not part of the Version 1 shopping list or initial build.
+
+## Build approach
+
+The project is being developed as a modular system. The first goal is to build and test a reliable offline computer, navigation and messaging platform. Once that works, Version 2 modules can be added without redesigning the entire device.
+
+## Current status
+
+The project is in the planning and hardware-selection stage. Component choices, prices and runtime estimates may change as dimensions, power consumption and compatibility are tested.
