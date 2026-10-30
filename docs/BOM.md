@@ -1,6 +1,6 @@
 # OFFGRID – parts list
 
-These are the parts I am planning to use for the first version. Prices are from when I checked and may change.
+These are the parts I am planning to use for the first version. Prices are from when I checked and may change. The full list is in [BOM.csv](../BOM.csv).
 
 ## Already have
 
@@ -34,9 +34,9 @@ I measured roughly 5.8 cm of usable depth in the bottom. The 8-inch screen is ab
 
 *The screen was showing a stock notification when I checked.
 
-The screen uses HDMI for the image and USB for touch, so I will need both cables. The GPS module uses 3.3 V, not 5 V.
+The screen uses HDMI for the image and USB for touch. The GPS module uses 3.3 V, not 5 V.
 
-## Handheld
+## Handheld terminal
 
 | Part | Qty. | Price | Shop |
 |---|---:|---:|---|
@@ -45,52 +45,40 @@ The screen uses HDMI for the image and USB for touch, so I will need both cables
 
 The handheld will have a touchscreen and an on-screen keyboard. The Waveshare board has no LoRa, so I am pairing it with another Heltec.
 
-The connection between the two boards should be UART (3.3 V):
+The planned UART connection is:
 
 - Waveshare TX GPIO43 → Heltec RX GPIO48
 - Waveshare RX GPIO44 ← Heltec TX GPIO47
 - GND → GND
 
-I need to double-check the pin labels before soldering. Also, I need to make sure I order V2 of the Waveshare board, not V1.
+I need to double-check the pin labels before soldering. Both boards use 3.3 V logic.
 
-## Battery
+## Battery and power
 
-I am looking at a 2S4P Li-ion pack from [ASOL](https://asolbattery.com/product/asol-21700-2s4p-7-4v-20000mah-cylindrical-li-ion-battery-pack/).
+I have decided to use a LiFePO4 battery for the main station, but I have not chosen the exact pack yet. I still need to compare its voltage, capacity, BMS, size and price. The target is around 10 hours of use.
 
-- 7.4 V nominal, 8.4 V fully charged
-- 20 Ah (about 148 Wh)
-- Built-in 2S BMS
-- Listed thickness: about 44 mm
+The charger must match the selected battery pack and its BMS. I will not choose a charger before choosing the battery.
 
-I have not ordered it yet. I still need the full dimensions, BMS details and a quote from the supplier. The listed dimensions are not enough to confirm that it fits.
+The Pi 5 needs a stable 5.1 V supply with enough current. The screen needs its own supply based on the exact display specifications. The power PCB should include a fuse, main switch, protection, separate outputs and battery monitoring.
 
-A possible charger is the [Fuyuang 8.4 V / 3 A charger](https://baterija.lt/en/chargers-power-supply/2124-fuyuang-2s-li-ion-battery-charger-84v-3a.html), but I will check that it matches the battery and its BMS first.
-
-## Power
-
-This part still needs work.
-
-The Pi 5 needs a stable 5.1 V supply. The [Geekworm Pi5-5V5APD](https://wiki.geekworm.com/Pi5-5V5APD) can supply up to 5 V / 5 A, but its input needs 9–24 V. My planned 2S battery only gives 6–8.4 V, so it cannot power this board directly. I would need a suitable boost converter before it, or a different power solution.
-
-The screen will also need its own 5 V supply. I plan to make a small power PCB with a fuse, switch, battery monitoring and separate outputs. I have not chosen the final parts for this yet.
-
-I will test the power setup before connecting it to the Pi. I also need to work out safe low-battery shutdown.
+The Geekworm Pi5-5V5APD is only one possible module. Its input range is 9–24 V, so it can only be used if the selected battery and power design can supply that voltage. It is not selected yet.
 
 ## Price so far
 
-The parts with prices listed above come to **€483.17**. This includes the Pi, SSD kit, cooler, main screen, two Heltec boards and GPS.
+The parts with prices listed in BOM.csv add up to **€483.17**. This includes the Pi, SSD kit, cooler, main screen, two Heltec boards and GPS.
 
-It does not include the handheld screen, battery, charger, power electronics, cables or shipping, so the final price will be higher.
+It does not include the battery, charger, power electronics, handheld screen, cables or shipping, so the final price will be higher.
 
 ## Still to do
 
-- Get the battery dimensions and BMS information.
-- Decide on the power supply and design the power PCB.
+- Choose the LiFePO4 battery and charger.
+- Finish the power design.
+- Check the exact display power requirements.
 - Test GPS, LoRa and the handheld screen.
 - Check that everything fits in the case and make the mounts.
-- Measure the real battery runtime. Around 10 hours would be nice, but I need to test it.
+- Measure the real battery runtime.
 
-## Links
+## Useful links
 
 - [Raspberry Pi M.2 HAT+ guide](https://www.raspberrypi.com/documentation/accessories/m2-hat-plus.html)
 - [Waveshare 8-inch screen](https://www.waveshare.com/wiki/8DP-CAPLCD)
