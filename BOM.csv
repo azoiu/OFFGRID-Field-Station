@@ -1,0 +1,22 @@
+Item,Qty,Unit price,Currency,Subtotal,Currency,Source,Link,Status,Notes
+Raspberry Pi 5 8GB,1,184.06,EUR,184.06,EUR,TME,https://www.tme.eu/si/sl/details/sc1112/raspberry-pi-mini-racunalniki/raspberry-pi/raspberry-pi-5-8gb-ram/,Planned,
+Official Raspberry Pi 512GB SSD kit with M.2 HAT+,1,138.05,EUR,138.05,EUR,TME,https://www.tme.eu/si/sl/details/sc1676/raspberry-pi-dodatki/raspberry-pi/512gb-ssd-kit/,Planned,Includes M.2 HAT+
+Raspberry Pi Active Cooler,1,5.26,EUR,5.26,EUR,TME,https://www.tme.eu/si/en/details/sc1148/raspberry-pi-acessories/raspberry-pi/raspberry-pi-active-cooler/,Planned,
+Waveshare 8-inch HDMI touchscreen,1,93.50,EUR,93.50,EUR,Opencircuit,https://opencircuit.shop/product/8inch-capacitive-touch-display-optical-bonding,Planned,Listing showed a stock notification when checked
+Heltec WiFi LoRa 32 V3 EU868,2,22.95,EUR,45.90,EUR,Hexaspot,https://hexaspot.com/collections/heltec/products/heltec-wifi-lora-32-v3,Planned,One for the main station and one for the handheld
+u-blox M10 GPS module with antenna,1,16.40,EUR,16.40,EUR,Neven7,https://www.neven7.eu/p/ublox-m10-gps-module-with-an-active-antenna,Planned,Use 3.3V supply
+Waveshare ESP32-S3-Touch-LCD-2.8 V2,1,,,USD,,,Planned,Price estimate was US$20-26 before shipping and tax; confirm exact listing and price
+ASOL 2S4P 21700 Li-ion battery pack 7.4V 20Ah,1,,,EUR,ASOL,https://asolbattery.com/product/asol-21700-2s4p-7-4v-20000mah-cylindrical-li-ion-battery-pack/,Candidate only,Need full dimensions BMS details and supplier quote before choosing
+Fuyuang 8.4V 3A 2S Li-ion charger,1,,,EUR,Fuyuang,https://baterija.lt/en/chargers-power-supply/2124-fuyuang-2s-li-ion-battery-charger-84v-3a.html,Possible option,Only use if battery supplier confirms compatibility with the pack and BMS
+Geekworm Pi5-5V5APD power module,1,,,EUR,Geekworm,https://wiki.geekworm.com/Pi5-5V5APD,Not compatible directly,Input is 9-24V; planned 2S battery is 6-8.4V and needs a suitable boost stage or a different power module
+Battery boost converter or alternative Pi power module,1,,,,,,To choose,Must support the full 2S battery voltage range and Pi 5 power requirements
+5V power supply for main touchscreen,1,,,,,,To choose,Confirm current requirement from the exact display version
+Battery fuse and holder,1,,,,,,To choose,Choose after power design
+Main power switch,1,,,,,,To choose,
+Battery charging connector and wiring,1,,,,,,To choose,Must match selected battery and charger
+Power PCB and connectors,1,,,,,,To design,Final design and manufacturing price not known yet
+Micro-HDMI to HDMI cable,1,,,,,,To buy,Short cable for the main screen
+USB data cable for touchscreen,1,,,,,,To buy,For touch input
+SINOCASE SC001 hard case,1,,,,,https://www.chinax.com/china-enclosure/pz691235a-moisture-proof-plastic-gun-case-dust-proof-waterproof-drop-resistant.html,Already owned,Temu purchase; add actual purchase price when available
+3D-printed mounts and internal parts,1,,,,,,To make,Add filament/material cost after CAD design
+Shipping,1,,,,,,To calculate,Add actual shipping costs from the suppliers
