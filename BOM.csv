@@ -1,23 +1,23 @@
 Item,Qty,Unit price,Currency,Subtotal,Source,Link,Status,Notes
 Raspberry Pi 5 8GB,1,184.06,EUR,184.06,TME,https://www.tme.eu/si/sl/details/sc1112/raspberry-pi-mini-racunalniki/raspberry-pi/raspberry-pi-5-8gb-ram/,Planned,
-Official Raspberry Pi 512GB SSD kit with M.2 HAT+,1,138.05,EUR,138.05,TME,https://www.tme.eu/si/sl/details/sc1676/raspberry-pi-dodatki/raspberry-pi/512gb-ssd-kit/,Planned,Includes M.2 HAT+
+512GB SSD kit with M.2 HAT+,1,138.05,EUR,138.05,TME,https://www.tme.eu/si/sl/details/sc1676/raspberry-pi-dodatki/raspberry-pi/512gb-ssd-kit/,Planned,
 Raspberry Pi Active Cooler,1,5.26,EUR,5.26,TME,https://www.tme.eu/si/en/details/sc1148/raspberry-pi-acessories/raspberry-pi/raspberry-pi-active-cooler/,Planned,
-Waveshare 8-inch HDMI touchscreen,1,93.50,EUR,93.50,Opencircuit,https://opencircuit.shop/product/8inch-capacitive-touch-display-optical-bonding,Planned,Listing showed a stock notification when checked
-Heltec WiFi LoRa 32 V3 EU868,2,22.95,EUR,45.90,Hexaspot,https://hexaspot.com/collections/heltec/products/heltec-wifi-lora-32-v3,Planned,One for the main station and one for the handheld
-u-blox M10 GPS module with antenna,1,16.40,EUR,16.40,Neven7,https://www.neven7.eu/p/ublox-m10-gps-module-with-an-active-antenna,Planned,Use 3.3V supply
-Waveshare ESP32-S3-Touch-LCD-2.8 V2,1,,USD,,Waveshare,https://www.waveshare.com/product/esp32-s3-touch-lcd-2.8.htm,Planned,Previous estimate was US$20-26 before shipping and tax; confirm exact price
-LiFePO4 battery pack,1,,EUR,,,To choose,Capacity voltage BMS dimensions and price still need to be selected; target runtime is about 10 hours
-Charger for selected LiFePO4 pack,1,,EUR,,,To choose,Must match the exact battery voltage and BMS
-Geekworm Pi5-5V5APD power module,1,,EUR,,Geekworm,https://wiki.geekworm.com/Pi5-5V5APD,Not selected,Input is 9-24V; only use if the chosen battery and power design can supply its input range
-Pi 5 DC/DC power module,1,,,,,To choose,Must provide a stable 5.1V supply with enough current for the Pi 5 and SSD
-5V power supply for main touchscreen,1,,,,,To choose,Confirm voltage and current from the exact display version
-Battery fuse and holder,1,,,,,To choose,Choose after battery and maximum current are known
-Main power switch,1,,,,,To choose,Choose current and voltage rating after power design
-Battery charging connector and wiring,1,,,,,To choose,Must match selected battery and charger
-Power PCB and connectors,1,,,,,To design,Final design and manufacturing price not known yet
-Micro-HDMI to HDMI cable,1,,,,,To buy,Short cable for the main screen
-USB data cable for touchscreen,1,,,,,To buy,For touch input
-SINOCASE SC001 hard case,1,,,,https://www.chinax.com/china-enclosure/pz691235a-moisture-proof-plastic-gun-case-dust-proof-waterproof-drop-resistant.html,Already owned,Add actual purchase price when available; this link is the matching specification
-3D-printed mounts and internal parts,1,,,,,To make,Add filament/material cost after CAD design
-Shipping,1,,,,,To calculate,Add actual shipping costs from the suppliers
-TOTAL of currently priced items,1,,,483.17,EUR,,,Excludes battery power electronics handheld display and shipping
+Waveshare 8-inch touchscreen,1,93.50,EUR,93.50,Opencircuit,https://opencircuit.shop/product/8inch-capacitive-touch-display-optical-bonding,Planned,Stock needs checking
+Heltec LoRa 32 V3 EU868,2,22.95,EUR,45.90,Hexaspot,https://hexaspot.com/collections/heltec/products/heltec-wifi-lora-32-v3,Planned,One for the main station and one for the handheld
+u-blox M10 GPS,1,16.40,EUR,16.40,Neven7,https://www.neven7.eu/p/ublox-m10-gps-module-with-an-active-antenna,Planned,Needs 3.3V
+Waveshare ESP32-S3-Touch-LCD-2.8 V2,1,,,,Waveshare,https://www.waveshare.com/product/esp32-s3-touch-lcd-2.8.htm,Planned,Price not checked
+LiFePO4 battery pack,1,,,,,,,To choose,Need to choose voltage capacity BMS and size
+Charger for LiFePO4 battery,1,,,,,,,To choose,Must match the battery
+Geekworm Pi5-5V5APD power module,1,,,,Geekworm,https://wiki.geekworm.com/Pi5-5V5APD,Not selected,Input is 9-24V so check if it works with the chosen battery
+DC/DC converter for Pi 5,1,,,,,,,To choose,Needs stable 5.1V and enough current
+Power supply for main screen,1,,,,,,,To choose,Check the screen datasheet
+Fuse and holder,1,,,,,,,To choose,Choose after battery and current are known
+Main power switch,1,,,,,,,To choose,Choose correct current rating
+Charging connector and wires,1,,,,,,,To choose,Match the battery and charger
+Power PCB and connectors,1,,,,,,,To design,
+Micro-HDMI to HDMI cable,1,,,,,,,To buy,
+USB cable for touchscreen,1,,,,,,,To buy,
+SINOCASE SC001 case,1,,,,,,,Already have,
+3D printed mounts,1,,,,,,,To make,
+Shipping,1,,,,,,,Not included,
+TOTAL of parts with prices,1,,,483.17,EUR,,,Does not include battery power parts handheld screen or shipping
