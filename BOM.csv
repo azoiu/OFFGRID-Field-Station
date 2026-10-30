@@ -6,13 +6,13 @@ Waveshare 8-inch HDMI touchscreen,1,93.50,EUR,93.50,Opencircuit,https://opencirc
 Heltec WiFi LoRa 32 V3 EU868,2,22.95,EUR,45.90,Hexaspot,https://hexaspot.com/collections/heltec/products/heltec-wifi-lora-32-v3,Planned,One for the main station and one for the handheld
 u-blox M10 GPS module with antenna,1,16.40,EUR,16.40,Neven7,https://www.neven7.eu/p/ublox-m10-gps-module-with-an-active-antenna,Planned,Use 3.3V supply
 Waveshare ESP32-S3-Touch-LCD-2.8 V2,1,,USD,,Waveshare,https://www.waveshare.com/product/esp32-s3-touch-lcd-2.8.htm,Planned,Previous estimate was US$20-26 before shipping and tax; confirm exact price
-ASOL 2S4P 21700 Li-ion battery pack 7.4V 20Ah,1, ,EUR,,ASOL,https://asolbattery.com/product/asol-21700-2s4p-7-4v-20000mah-cylindrical-li-ion-battery-pack/,Candidate only,Need full dimensions BMS details and supplier quote before choosing
-Fuyuang 8.4V 3A 2S Li-ion charger,1,,EUR,,Fuyuang,https://baterija.lt/en/chargers-power-supply/2124-fuyuang-2s-li-ion-battery-charger-84v-3a.html,Possible option,Only use if battery supplier confirms compatibility with the pack and BMS
-Geekworm Pi5-5V5APD power module,1,,EUR,,Geekworm,https://wiki.geekworm.com/Pi5-5V5APD,Not compatible directly,Input is 9-24V; planned 2S battery is 6-8.4V and needs a suitable boost stage or a different power module
-Battery boost converter or alternative Pi power module,1,,,,,To choose,Must support the full 2S battery voltage range and Pi 5 power requirements
-5V power supply for main touchscreen,1,,,,,To choose,Confirm current requirement from the exact display version
-Battery fuse and holder,1,,,,,To choose,Choose after power design
-Main power switch,1,,,,,To choose,
+LiFePO4 battery pack,1,,EUR,,,To choose,Capacity voltage BMS dimensions and price still need to be selected; target runtime is about 10 hours
+Charger for selected LiFePO4 pack,1,,EUR,,,To choose,Must match the exact battery voltage and BMS
+Geekworm Pi5-5V5APD power module,1,,EUR,,Geekworm,https://wiki.geekworm.com/Pi5-5V5APD,Not selected,Input is 9-24V; only use if the chosen battery and power design can supply its input range
+Pi 5 DC/DC power module,1,,,,,To choose,Must provide a stable 5.1V supply with enough current for the Pi 5 and SSD
+5V power supply for main touchscreen,1,,,,,To choose,Confirm voltage and current from the exact display version
+Battery fuse and holder,1,,,,,To choose,Choose after battery and maximum current are known
+Main power switch,1,,,,,To choose,Choose current and voltage rating after power design
 Battery charging connector and wiring,1,,,,,To choose,Must match selected battery and charger
 Power PCB and connectors,1,,,,,To design,Final design and manufacturing price not known yet
 Micro-HDMI to HDMI cable,1,,,,,To buy,Short cable for the main screen
@@ -20,4 +20,4 @@ USB data cable for touchscreen,1,,,,,To buy,For touch input
 SINOCASE SC001 hard case,1,,,,https://www.chinax.com/china-enclosure/pz691235a-moisture-proof-plastic-gun-case-dust-proof-waterproof-drop-resistant.html,Already owned,Add actual purchase price when available; this link is the matching specification
 3D-printed mounts and internal parts,1,,,,,To make,Add filament/material cost after CAD design
 Shipping,1,,,,,To calculate,Add actual shipping costs from the suppliers
-TOTAL of currently priced items,1,,,483.17,EUR,,,Excludes all blank-price items and shipping
+TOTAL of currently priced items,1,,,483.17,EUR,,,Excludes battery power electronics handheld display and shipping
