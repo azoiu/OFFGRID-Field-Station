@@ -5,13 +5,13 @@ OFFGRID is a small computer built into a hard case. I want to use it outdoors an
 ## First version
 
 - Raspberry Pi 5 (8 GB)
-- 512 GB SSD
+- 512 GB NVMe SSD
 - 8-inch touchscreen
 - GPS and offline maps for Slovenia
-- LoRa messaging
-- A small handheld terminal with a touchscreen
-- Local document search
-- Rechargeable battery
+- LoRa text messages
+- A separate handheld terminal with a touchscreen
+- Local document search and local AI
+- Rechargeable LiFePO4 battery
 
 I already have the case, keyboard, 3D printer and a few ESP32 boards.
 
@@ -23,12 +23,12 @@ The screen will go in the lid. The Pi, SSD, battery and power electronics will g
 
 ## Current plan
 
-The parts and prices are in [BOM.csv](BOM.csv). More notes about the parts are in [docs/BOM.md](docs/BOM.md). I am looking at a 2S Li-ion battery, but the battery and power system are not final yet.
+The parts and prices are in [BOM.csv](BOM.csv). More notes are in [docs/BOM.md](docs/BOM.md). The first system layout is in [docs/system-block-diagram.md](docs/system-block-diagram.md), and the first wiring plan is in [docs/electrical-design.md](docs/electrical-design.md).
 
-My target is around 10 hours of runtime. I will have to measure the actual runtime once it is built.
+I am still choosing the battery and power parts. My target is around 10 hours of runtime, but I will have to measure the real runtime once it is built.
 
 ## Maybe later
 
-If the first version works, I might add an RTL-SDR receiver and separate GPS trackers.
+Separate GPS trackers and an RTL-SDR receiver are ideas for a later version, not part of V1.
 
 For now, I just want to get the basic station working.
