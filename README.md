@@ -20,9 +20,13 @@ The handheld terminal uses a small touchscreen and an on-screen keyboard. It has
 
 ## Hardware decisions
 
-The main hardware choices are listed in [docs/BOM.md](docs/BOM.md). The battery pack is not selected yet. The preferred power architecture is a 2-cell Li-ion pack, subject to finding a suitable pack and validating its charger, protection and dimensions.
+The main hardware choices and supplier links are listed in [docs/BOM.md](docs/BOM.md).
 
-The exact case model and usable internal dimensions still need to be confirmed before the final mechanical layout and battery can be approved. The 10-hour runtime target must be measured on the finished build.
+The selected case is the SINOCASE SC001, purchased from Temu seller sinocase. The matching manufacturer specification lists an internal footprint of 255 × 190 mm and total internal depth of 85 mm. The current mechanical design assumes approximately 58 mm usable depth in the lower half; this is a user estimate and should be checked against the physical case during final mounting.
+
+The preferred battery target is a protected 2S4P Li-ion pack around 7.4 V, 20 Ah / 148 Wh. The exact pack remains subject to supplier quote, complete dimensions, BMS documentation and charger compatibility. The custom power board must be load-tested before it is connected to the Raspberry Pi.
+
+The 10-hour runtime target is an engineering goal, not a guarantee; it must be measured on the finished build.
 
 ## Later version
 
@@ -34,4 +38,4 @@ Possible later additions:
 
 ## Progress
 
-The main components have been selected and the first power architecture is defined. Mechanical fit, battery selection, power-board validation and firmware tests remain. See the [parts list](docs/BOM.md) for the current shopping list.
+The v1 component architecture and supplier shortlist are documented in the [parts list](docs/BOM.md). Remaining validation work is the battery purchase/fit, final power-board design and load test, mechanical fit check, and firmware tests for GPS, LoRa and the handheld terminal.
