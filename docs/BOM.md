@@ -33,18 +33,18 @@ This is the current parts plan. Prices can change. The full list is in [BOM.csv]
 
 | Part | Qty. | Choice |
 |---|---:|---|
-| Main battery | 1 | Custom supplier-made 4S1P LiFePO4 pouch pack, 12.8 V, 25 Ah, 320 Wh |
+| Main battery | 1 | Supplier-made 4S1P LiFePO4 pack, 12.8 V, 15 Ah, 192 Wh |
 | BMS | 1 | Matched 4S LiFePO4 BMS, supplied with pack |
 | Main fuse | 1 | 10 A automotive blade fuse, verify after current test |
 | Main switch | 1 | DC rated, at least 15 A at 16 V |
 | Pi power module | 1 | Geekworm Pi5-5V5APD terminal-block version |
 | Screen converter | 1 | Pololu D24V50F5 |
-| Wall charger | 1 | Victron Blue Smart IP65 12/5, only if pack maker approves 14.2 V Li-ion mode |
-| Car charger | 1 | Victron Orion-Tr Smart 12/12-18A isolated, configure for pack and limit to 5 A |
+| Wall charger | 1 | LiFePO4 charger to select after pack maker confirms charge profile |
+| Car charger | 1 | Programmable DC-DC charger, settings to be confirmed |
 
-Battery cell reference: [Topwell 3.2 V 25 Ah LiFePO4 pouch cell](https://www.topwellpower.com/products/5c-32v-20ah-lithium-iron-phosphate-pouch-cell).
+Battery cell reference: [Topwell 3.2 V 25 Ah LiFePO4 pouch cell](https://www.lifepo4cells.eu/en/cell/gotion-33140-15ah-3-2v-lifepo4-cell/).
 
-The finished battery must be no larger than 245 × 175 × 45 mm. This is a supplier requirement, not a confirmed product size. Do not order before getting a dimensioned drawing and checking the real case.
+The finished battery must be no larger than about 155 × 145 × 42 mm (target only). This is a supplier requirement, not a confirmed product size. Do not order before getting a dimensioned drawing and checking the real case.
 
 Power module references:
 - [Geekworm Pi5-5V5APD](https://wiki.geekworm.com/Pi5-5V5APD)
