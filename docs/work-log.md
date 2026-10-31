@@ -48,3 +48,23 @@ Updated:
 - Test real current, temperatures and runtime.
 
 I am keeping these as open tasks instead of pretending they are finished.
+
+
+## 31 October 2026 – second design review
+
+Checked the current repository files against the current product specifications.
+
+Found and corrected:
+- `README.md` still described the old 25 Ah pouch battery. It now matches the 15 Ah cylindrical-cell design.
+- `docs/battery-pack-spec.md` had an unverified finished-pack size. Removed it because only the cell-only size is known.
+- `docs/battery-and-charging.md` had old charger headings and a charger link even though no charger is selected. Clarified this.
+- `docs/case-fit.md` had one leftover reference to a pouch cell.
+- `hardware/power-overview/OFFGRID-Power.kicad_sch` still showed the old 25 Ah battery. Updated its labels, but it remains a planning drawing, not an electrical schematic.
+
+Important electrical finding:
+- Geekworm's own test table shows 4.987 V at 5 A without the jumper and 5.127 V at 5 A with the jumper. With the jumper, no-load output is 5.378 V. This means we must test its output and cable drop carefully before deciding whether this module is suitable for the Pi 5.
+
+Not done:
+- No PCB is released or ready to manufacture.
+- No battery pack or charger has been ordered.
+- Need to check the real pack drawing, BMS and connector before drawing final power PCB.
