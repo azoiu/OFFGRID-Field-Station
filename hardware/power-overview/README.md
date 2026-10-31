@@ -2,10 +2,17 @@
 
 Open `OFFGRID-Power.kicad_pro` and `OFFGRID-Power.kicad_sch` with KiCad.
 
-This is an early power architecture drawing. It shows the planned blocks and their connections, not a finished production circuit.
+The selected power plan is:
 
-The battery target is a supplier-made 4S4P LiFePO4 pack (12.8 V, 24 Ah). The pack is not ordered and its final size, BMS and connector are not confirmed.
+- 4S1P LiFePO4 pouch pack, 12.8 V, 25 Ah (supplier-built)
+- matched 4S LiFePO4 BMS
+- 10 A main fuse as a starting value, to be verified
+- 15 A DC main switch
+- Geekworm Pi5-5V5APD terminal-block version for Pi 5 USB-C 5 V/5 A
+- Pololu D24V50F5 for the 5 V screen supply
 
-The DC/DC converters are still generic blocks. Their exact models, ratings, footprints, fuse, wire sizes and connectors must be selected before this can become a buildable schematic or PCB.
+The drawing is a wiring architecture diagram. It is not yet a finished electrical schematic with verified component symbols, footprints and nets. No PCB has been designed yet.
 
-Do not build hardware from this drawing alone.
+The DC/DC converter boards are bought as modules. The future PCB should only distribute power and hold the connectors/fuse/switch wiring. It should not contain a home-designed high-current switching regulator.
+
+Do not build hardware from the drawing alone. Check the final battery datasheet, connector polarity, current, fuse and wire ratings first.
