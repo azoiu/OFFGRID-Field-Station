@@ -1,32 +1,32 @@
 # Wiring and power design
 
-This is the selected V1 power architecture. The battery pack is still a supplier order, so check its final datasheet before connecting anything.
+This is the selected V1 power direction. The battery pack is not ordered. Check the final cell and BMS datasheets before connecting anything.
 
 ## Selected power system
 
-- Battery: supplier-made 4S1P LiFePO4 pouch pack, 12.8 V nominal, 25 Ah, 320 Wh.
+- Battery: supplier-built 4S1P LiFePO4 pack, four 3.2 V 15 Ah Gotion 33140 cells, 12.8 V nominal, 15 Ah, 192 Wh.
 - BMS: matched 4S LiFePO4 BMS supplied with the pack, with balancing, temperature sensing and low-temperature charge cut-off.
 - Main fuse: 10 A automotive blade fuse close to battery positive. This is a starting value, not final approval. Verify it against measured peak current, cable ampacity and converter requirements.
 - Main switch: DC rated, at least 15 A at 16 V DC.
-- Pi supply: Geekworm Pi5-5V5APD terminal-block version, 9–24 V input, USB-C 5 V/5 A PD output. Input power must be over 30 W for full output. Check the voltage at the Pi under full load before normal use.
-- Screen supply: Pololu D24V50F5, 6–38 V input, 5 V output, up to 5 A typical. The screen uses about 4 W, so this has margin. Mount it so it can cool.
-- GPS and main Heltec: powered from Pi USB or a separately fused 5 V branch, depending on the final board versions. Do not power them from GPIO pins.
+- Pi supply: Geekworm Pi5-5V5APD terminal-block version, 9–24 V input, USB-C 5 V/5 A PD output. Check voltage at the Pi under full load.
+- Screen supply: Pololu D24V50F5, 6–38 V input, 5 V output. Mount it so it can cool.
+- GPS and main Heltec: powered from Pi USB or a separately fused 5 V branch, depending on final board versions. Do not power them from GPIO pins.
 - Handheld: separate battery as already planned.
 
 ## Power flow
 
 ```mermaid
 flowchart LR
-    BAT["4S1P LiFePO4 12.8V 25Ah"] --> BMS["Matched 4S LiFePO4 BMS"]
+    BAT["4S1P LiFePO4 12.8V 15Ah"] --> BMS["Matched 4S LiFePO4 BMS"]
     BMS --> FUSE["10A main fuse (verify)"]
     FUSE --> SW["15A DC main switch"]
     SW --> BUS["12.8V DC distribution"]
     BUS --> PI["Geekworm Pi5-5V5APD"]
-    PI --> PI5["Raspberry Pi 5 USB-C 5V/5A"]
+    PI --> PI5["Raspberry Pi 5 USB-C"]
     BUS --> LCD["Pololu D24V50F5"]
-    LCD --> DISP["Waveshare 8DP-CAPLCD 5V"]
+    LCD --> DISP["Waveshare screen 5V"]
     BUS --> AUX["Fused auxiliary 5V branch"]
-    AUX --> GPS["GPS / Heltec (board supply checked)"]
+    AUX --> GPS["GPS / Heltec"]
 ```
 
 ## Main wiring
@@ -42,22 +42,21 @@ flowchart LR
 | Geekworm USB-C | Pi 5 USB-C | Short, good USB-C cable |
 | 12.8 V bus | Pololu VIN | Check board polarity |
 | Pololu 5 V output | Screen 5 V input | Check screen connector and polarity |
-| 12.8 V bus | Auxiliary 5 V converter | Add branch fuse after load is measured |
 
 ## Wire and connector starting points
 
-For short internal battery-to-bus wiring, use flexible copper wire at least 1.5 mm² with crimped terminals and strain relief. Final wire size must be checked against length, temperature, bundling and fuse. Use locking connectors or covered screw terminals. Do not use Dupont jumpers for power.
+For short internal battery-to-bus wiring, use flexible copper wire with crimped terminals and strain relief. Final wire size must be checked against length, temperature, bundling and fuse. Use locking connectors or covered screw terminals. Do not use Dupont jumpers for power.
 
 ## Charging
 
-- Wall: Victron Blue Smart IP65 12/5, 5 A, Li-ion 14.2 V mode, only if the battery supplier approves this voltage for the exact pack.
-- Car: Victron Orion-Tr Smart 12/12-18A isolated, configured for LiFePO4 and limited to 5 A after checking the battery instructions.
-- Both chargers stay outside the case.
-- No 230 V wiring inside the case.
-- Do not connect the battery directly to a car socket or alternator.
+Use an external LiFePO4 charger. The exact voltage and current must be approved by the pack supplier. Do not assume the previous 14.2 V charger setting is correct for these cells.
+
+For car charging, use a programmable DC-DC charger and configure it only after the pack supplier confirms the charge profile. Both chargers stay outside the case. No 230 V wiring goes inside the case.
 
 ## KiCad status
 
-The KiCad project is a wiring architecture drawing. It is not yet a PCB layout. The converters are complete modules, so I plan to mount them on a small carrier/distribution PCB with screw terminals, fuse holder, switch connection and labelled output connectors. This avoids designing a high-current switching converter from scratch.
+The current KiCad drawing is only a planning diagram. A proper schematic and PCB still need to be made and checked. The PCB should be a low-voltage distribution/carrier board for the bought converter modules, fuse, switch and connectors. It should not contain a home-designed high-current switching regulator.
 
-Before the PCB can be released, I still need the actual battery connector, fuse holder, terminal blocks and mechanical measurements. Do not fabricate the board from placeholder footprints.
+I can prepare the KiCad source files in this GitHub repository. I do not have a live desktop session to open KiCad and run ERC/DRC here. Before a PCB is released for manufacture, its footprints, clearances, track widths, mounting holes and connector models must be checked in KiCad.
+
+Do not build hardware from the planning drawing alone.
