@@ -1,6 +1,6 @@
 # Power test plan
 
-I need to test the real device before saying it can run for 10 hours.
+I need to test the real device before saying how long it can run.
 
 ## Before testing
 
@@ -24,6 +24,10 @@ I will test the main station with:
 
 I should use a watt meter or a DC power meter between the battery and the power board. I can also measure the 5 V outputs separately.
 
+There may be about 15–20 W of heat inside the closed case, next to the battery. This is an estimate from the planned system load, not a measured heat output. I need to test temperatures with the lid closed and the Pi under load. The Pi 5 can throttle when it gets too hot.
+
+The cell maker's allowed charge temperature range must be checked. LiFePO4 cells must not be charged below 0 °C unless the exact cell maker explicitly allows it.
+
 ## What to write down
 
 | Test | Result |
@@ -36,6 +40,7 @@ I should use a watt meter or a DC power meter between the battery and the power 
 | Test start and end time | Not tested |
 | Runtime | Not tested |
 | Converter temperature | Not tested |
+| Temperature inside the closed case | Not tested |
 | Any shutdown or low-voltage warning | Not tested |
 
 ## Test steps
@@ -44,14 +49,15 @@ I should use a watt meter or a DC power meter between the battery and the power 
 2. Start the system with the normal settings.
 3. Use the screen, maps, GPS and LoRa as they would be used outside.
 4. Record battery voltage and power every 30 minutes.
-5. Keep the test in a safe place and do not leave the first test unattended.
-6. Stop the test before the BMS cuts power. Shut down the Pi properly.
-7. Repeat the test once the setup is stable.
+5. Record temperatures with the lid closed. Include the Pi, converters and the air near the battery.
+6. Keep the test in a safe place and do not leave the first test unattended.
+7. Stop the test before the BMS cuts power. Shut down the Pi properly.
+8. Repeat the test once the setup is stable.
 
 The first test should be done with a current-limited bench supply if possible, before connecting the battery pack.
 
 ## Pass condition
 
-The goal is at least 10 hours with the normal setup. I will only write that it passed after a real test.
+The target is about **8 hours with the normal setup**. Ten hours is only a possibility if the measured average load is low. I will only write that it passed after a real test.
 
-A short test on the desk does not prove that it will last 10 hours in cold weather outside.
+A short test on the desk does not prove that it will last 8 hours in cold weather outside.
