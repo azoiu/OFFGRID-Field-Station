@@ -2,22 +2,22 @@ Item,Qty,Unit price,Currency,Subtotal,Source,Link,Status,Notes
 Raspberry Pi 5 8GB,1,184.06,EUR,184.06,TME,https://www.tme.eu/si/sl/details/sc1112/raspberry-pi-mini-racunalniki/raspberry-pi/raspberry-pi-5-8gb-ram/,Planned,
 512GB SSD kit with M.2 HAT+,1,138.05,EUR,138.05,TME,https://www.tme.eu/si/sl/details/sc1676/raspberry-pi-dodatki/raspberry-pi/512gb-ssd-kit/,Planned,
 Raspberry Pi Active Cooler,1,5.26,EUR,5.26,TME,https://www.tme.eu/si/en/details/sc1148/raspberry-pi-acessories/raspberry-pi/raspberry-pi-active-cooler/,Planned,
-Waveshare 8-inch touchscreen,1,93.50,EUR,93.50,Opencircuit,https://opencircuit.shop/product/8inch-capacitive-touch-display-optical-bonding,Planned,Stock needs checking
-Heltec LoRa 32 V3 EU868,2,22.95,EUR,45.90,Hexaspot,https://hexaspot.com/collections/heltec/products/heltec-wifi-lora-32-v3,Planned,One for the main station and one for the handheld
-u-blox M10 GPS,1,16.40,EUR,16.40,Neven7,https://www.neven7.eu/p/ublox-m10-gps-module-with-an-active-antenna,Planned,Needs 3.3V
+Waveshare 8-inch touchscreen 8DP-CAPLCD,1,93.50,EUR,93.50,Opencircuit,https://opencircuit.shop/product/8inch-capacitive-touch-display-optical-bonding,Planned,Stock needs checking
+Heltec LoRa 32 V3 EU868,2,22.95,EUR,45.90,Hexaspot,https://hexaspot.com/collections/heltec/products/heltec-wifi-lora-32-v3,Planned,One for main station and one for handheld
+u-blox M10 GPS breakout,1,16.40,EUR,16.40,Neven7,https://www.neven7.eu/p/ublox-m10-gps-module-with-an-active-antenna,Planned,Check exact breakout supply
 Waveshare ESP32-S3-Touch-LCD-2.8 V2,1,,,,Waveshare,https://www.waveshare.com/product/esp32-s3-touch-lcd-2.8.htm,Planned,Price not checked
-LiFePO4 battery pack - 4S flat pack preferred,1,,,,,,To choose,12.8V 20Ah is a capacity target only; standard hard-case battery blocks are too thick for the measured 58mm bottom space
-External 4S LiFePO4 mains charger,1,,,,,,To choose,Must match the final battery maker's charge voltage and current
-Geekworm Pi5-5V5APD power module,1,,,,Geekworm,https://wiki.geekworm.com/Pi5-5V5APD,Not selected,Input is 9-24V so check if it works with the chosen battery
-DC/DC converter for Pi 5,1,,,,,,To choose,Needs stable 5.1V and enough current
-Power supply for main screen,1,,,,,,To choose,Check the screen datasheet
-Fuse and holder,1,,,,,,To choose,Choose after battery and current are known
-Main power switch,1,,,,,,To choose,Choose correct current rating
-Automotive LiFePO4 DC-DC charger,1,,,,,,Optional,For charging from a vehicle; select after battery choice
-Power PCB and connectors,1,,,,,,To design,
+Custom LiFePO4 pouch battery pack 4S1P 25Ah,1,,,,Battery pack supplier,https://www.topwellpower.com/products/5c-32v-20ah-lithium-iron-phosphate-pouch-cell,Specification only,12.8V 25Ah 320Wh; supplier must build pack and confirm max 245x175x45mm with BMS
+Matched 4S LiFePO4 BMS,1,,,,Battery pack supplier,,Included in pack,Must have balancing temperature sensing and low-temperature charge cut-off
+External 4S LiFePO4 charger 5A,1,,,,To select,,To buy,Set charge voltage only after cell and BMS datasheet confirmation
+Geekworm Pi5-5V5APD terminal block version,1,,,,Geekworm,https://wiki.geekworm.com/Pi5-5V5APD,Selected module,9-24V input and USB-C 5V 5A PD output; needs over 30W input for full output
+Pololu D24V50F5 screen converter,1,,,,Pololu,https://www.pololu.com/product/2851/specs,Selected module,6-38V input 5V output; mount with airflow
+Main fuse and holder,1,,,,To select,,Design target,10A starting value; verify with measured current and cable rating
+Main DC switch,1,,,,To select,,Design target,At least 15A DC at 16V
+Victron Orion-Tr Smart DC-DC charger,1,,,,Victron,https://www.victronenergy.com/dc-dc-converters/orion-tr-smart,Optional car charging,Choose exact 12V model and configure charge current to pack limit
+Power distribution PCB and connectors,1,,,,To design,,Not made,Carrier board for external converter modules not a custom buck converter
 Micro-HDMI to HDMI cable,1,,,,,,To buy,
 USB cable for touchscreen,1,,,,,,To buy,
 SINOCASE SC001 case,1,,,,,,Already have,
 3D printed mounts,1,,,,,,To make,
 Shipping,1,,,,,,Not included,
-TOTAL of parts with prices,1,,,483.17,EUR,,,Does not include battery power parts handheld screen or shipping
+TOTAL of parts with prices,1,,,483.17,EUR,,,Old priced subtotal; battery and power parts are not included
