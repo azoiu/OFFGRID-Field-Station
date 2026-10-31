@@ -26,19 +26,23 @@ I choose a supplier-built **4S1P LiFePO4 pack using four 3.2 V 15 Ah Gotion 3314
 - Nominal energy: 192 Wh
 - Maximum charge voltage: 14.6 V only if confirmed by the final cell datasheet
 
-Why I changed it: the previous 25 Ah pouch cells were very thin, but their large 239 × 155 mm face would take almost all the case floor. Four 33140 cells arranged next to each other should use a smaller footprint and leave more space for the other electronics.
+Why I changed it: the previous pouch-cell idea had a large face and would take much of the case floor. Four 33140 cells arranged next to each other should use a smaller footprint and leave more space for the other electronics.
 
 The cell-only envelope is approximately 140 × 133 × 33.2 mm. The complete pack will be larger. The supplier must provide a dimensioned drawing before I order it.
 
 ## Runtime calculation
 
-Using 80% usable battery energy and 90% converter efficiency:
+I calculate runtime with 80% usable battery energy and 90% converter efficiency:
 
-- At 15 W average: 192 Wh × 0.8 × 0.9 ÷ 15 W = about **10.2 hours**
-- At 19 W average: about **8.1 hours**
-- At 12 W average: about **11.5 hours**
+192 Wh × 0.8 × 0.9 = **138.24 Wh usable at the system output**.
 
-The first practical target should be around **8 hours**. Ten hours is possible if the average load stays closer to 15 W or lower. This must be measured on the finished build.
+- At 12 W average: 138.24 Wh ÷ 12 W = about **11.5 hours**
+- At 15 W average: 138.24 Wh ÷ 15 W = about **9.2 hours**
+- At 19 W average: 138.24 Wh ÷ 19 W = about **7.3 hours**
+
+If local AI is running, the average load may be about 19 W or more. At 19 W the estimate is about **7 hours**. A higher load will reduce this further.
+
+These are calculations, not measured runtime. Cold weather, battery ageing, screen brightness, CPU load and radio activity can reduce runtime. I expect about **7–9 hours** for the first version, depending on the average load.
 
 ## Power outputs
 
@@ -61,6 +65,6 @@ Sources:
 - [Raspberry Pi power requirements](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html)
 - [Geekworm Pi5-5V5APD](https://wiki.geekworm.com/Pi5-5V5APD)
 - [Pololu D24V50F5](https://www.pololu.com/product/2851/specs)
-- [Gotion 33140 15 Ah cell listing](https://www.lifepo4cells.eu/en/cell/gotion-33140-15ah-lifepo4-cell/)
+- [Gotion 33140 15 Ah cell listing](https://www.lifepo4cells.eu/en/cell/gotion-33140-15ah-3-2v-lifepo4-cell/)
 
 This is not a completed power test.
