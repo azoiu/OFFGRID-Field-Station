@@ -1,73 +1,66 @@
-# Wiring notes
+# Wiring and power design
 
-This is the current idea for the wiring. It is still not a finished circuit. I need to choose the battery and exact converters before making the final KiCad schematic.
+This is the selected V1 power architecture. The battery pack is still a supplier order, so check its final datasheet before connecting anything.
 
-## Power idea
+## Selected power system
 
-I am looking at a 4S LiFePO4 battery (12.8 V nominal). A 20 Ah pack is the first size to investigate, but it must fit the case.
+- Battery: supplier-made 4S1P LiFePO4 pouch pack, 12.8 V nominal, 25 Ah, 320 Wh.
+- BMS: matched 4S LiFePO4 BMS supplied with the pack, with balancing, temperature sensing and low-temperature charge cut-off.
+- Main fuse: 10 A automotive blade fuse close to battery positive. This is a starting value for the planned load, not a final approval; check it against measured peak current, cable ampacity and converter input requirements before fitting.
+- Main switch: DC rated, at least 15 A at 16 V DC.
+- Pi supply: Geekworm Pi5-5V5APD, terminal-block input version, 9–24 V input, USB-C 5 V/5 A PD output. Input power must be over 30 W for full output. Use a short, good USB-C cable.
+- Screen supply: Pololu D24V50F5, 6–38 V input, 5 V output, up to 5 A typical. The screen uses about 4 W, so this has margin. Mount it so it can cool.
+- GPS and main Heltec: powered from Pi USB or a separately fused 5 V branch, depending on the final board versions. Do not power them from GPIO pins.
+- Handheld: separate battery as already planned.
+
+Product references:
+- Geekworm Pi5-5V5APD: https://wiki.geekworm.com/Pi5-5V5APD
+- Pololu D24V50F5: https://www.pololu.com/product/2851/specs
+
+## Power flow
 
 ```mermaid
 flowchart LR
-    BAT["12.8 V LiFePO4 pack (not selected)"] --> BMS["4S LiFePO4 BMS"]
-    BMS --> FUSE["Main fuse"]
-    FUSE --> SW["Main DC switch"]
-    SW --> BUS["Power distribution"]
-    BUS --> PI_DCDC["5.1 V converter, 5 A or more"]
-    BUS --> LCD_DCDC["5 V converter, 2 A or more"]
-    PI_DCDC --> PI["Raspberry Pi 5"]
-    LCD_DCDC --> LCD["8-inch screen"]
+    BAT["4S1P LiFePO4 12.8V 25Ah"] --> BMS["Matched 4S LiFePO4 BMS"]
+    BMS --> FUSE["10A main fuse (verify)"]
+    FUSE --> SW["15A DC main switch"]
+    SW --> BUS["12.8V DC distribution"]
+    BUS --> PI["Geekworm Pi5-5V5APD"]
+    PI --> PI5["Raspberry Pi 5 USB-C 5V/5A"]
+    BUS --> LCD["Pololu D24V50F5"]
+    LCD --> DISP["Waveshare 8DP-CAPLCD 5V"]
+    BUS --> AUX["Fused auxiliary 5V branch"]
+    AUX --> GPS["GPS / Heltec (board supply checked)"]
 ```
 
-The voltage and current values above are design targets, not selected parts.
+## Main wiring
 
-## Why separate converters?
-
-The Pi 5 can need a 5 V, 5 A supply to support the board and USB devices. The screen is listed at about 4 W. I want separate converters so a load change on the screen does not cause the Pi to reboot.
-
-The Pi converter should be rated for at least 5 A continuous at 5.1 V, with enough cooling. The screen converter should provide 5 V and at least 2 A. I need to check the real current and startup peaks before buying.
-
-## Main station connections
-
-| Part | Connection |
-|---|---|
-| Pi 5 to SSD | M.2 HAT+ |
-| Pi 5 to screen | HDMI for picture, USB for touch |
-| Pi 5 to GPS | UART or USB, not decided |
-| Pi 5 to Heltec | UART, pins not decided |
-| Battery to BMS | Battery pack wiring, must match the pack |
-| BMS to fuse and switch | DC power path |
-| Power distribution to Pi | 5.1 V converter |
-| Power distribution to screen | Separate 5 V converter |
-
-## Handheld connections
-
-The handheld has a Waveshare ESP32-S3 screen and a separate Heltec LoRa board. It will have its own battery.
-
-| Waveshare | Heltec | What it does |
+| From | To | Notes |
 |---|---|---|
-| GPIO43 TX | GPIO48 RX | Sends data |
-| GPIO44 RX | GPIO47 TX | Receives data |
-| GND | GND | Common ground |
+| Battery positive | BMS B+ | Pack builder supplies and verifies cell wiring |
+| Battery negative | BMS B- | Pack builder supplies and verifies cell wiring |
+| BMS P+ / P- | Main fuse and system output | Follow the exact BMS manual |
+| Main fuse | Main switch | Fuse close to battery positive |
+| Main switch | 12.8 V distribution | Use covered terminal block |
+| 12.8 V bus | Geekworm input | Confirm polarity with a meter first |
+| Geekworm USB-C | Pi 5 USB-C | Short 5 A-capable cable |
+| 12.8 V bus | Pololu VIN | Check board polarity |
+| Pololu 5 V output | Screen 5 V input | Check screen connector and polarity |
+| 12.8 V bus | Auxiliary 5 V converter | Add a small branch fuse after load is measured |
 
-These are the pins I plan to use. I need to check the exact board versions before soldering. Do not connect 5 V to these GPIO pins.
+## Wire and connector starting points
+
+For the short internal battery-to-bus wiring, use flexible copper wire at least 1.5 mm² with crimped terminals and proper strain relief. The final wire size must be checked against length, temperature, bundling and fuse. Use locking connectors or covered screw terminals. Do not use Dupont jumpers for power.
 
 ## Charging
 
-- Wall charging: external charger for the selected 4S LiFePO4 pack.
-- Car charging: automotive DC-DC charger with a LiFePO4 profile.
-- No 230 V mains wiring inside the case.
-- Do not connect a car socket directly to the battery.
+- Wall: external 4S LiFePO4 charger, initially target 5 A, matched to the final cell/BMS charge voltage.
+- Car: a proper automotive DC-DC battery charger configured for 4S LiFePO4, with engine detection and current limit. I choose a Victron Orion-Tr Smart model only after matching the input/output voltage and power variant to the car and pack.
+- No 230 V inside the case.
+- No direct connection to the car socket or alternator.
 
-The charger voltage and current must follow the battery manufacturer's instructions.
+## KiCad status
 
-## Before making a PCB
+The KiCad project is a wiring-level planning drawing. It is not yet a PCB layout. The converters are complete modules, so I plan to mount them on a small carrier/distribution PCB with screw terminals, fuse holder, switch connection and labelled output connectors. This avoids designing a high-current switching converter from scratch.
 
-- Pick the exact battery and check its BMS.
-- Pick a charger that matches the battery.
-- Choose converters and read their datasheets.
-- Work out fuse and wire sizes from the real current and cable length.
-- Check connector pinouts and polarity.
-- Check the converter temperature at full load.
-- Draw the final circuit in KiCad and run ERC.
-
-**Important:** This is not a finished circuit. Do not connect the battery or make a power PCB using only these notes. The missing parts and ratings need to be checked first.
+Before the PCB can be released, I still need the actual battery connector, fuse holder, terminal blocks and mechanical measurements. Do not fabricate the board from placeholder footprints.
