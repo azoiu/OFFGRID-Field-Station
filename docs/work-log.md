@@ -77,3 +77,32 @@ The corrected estimates are:
 - 19 W average load: about 7.3 hours
 
 The previous values of 10.2 hours and 8.1 hours were wrong. This is a correction to the calculation, not a change to a measured result. Nothing has been built or tested.
+
+
+## 31 October 2026 – documentation review and corrections
+
+I reviewed the project notes and updated the following files:
+
+- `README.md` – added the design-stage status and V1 scope, corrected the case dimensions and runtime estimate, added the software plan link and open questions.
+- `BOM.csv` – corrected the battery cell reference URL and clarified the Geekworm module availability note.
+- `docs/BOM.md` – corrected the battery cell link text and removed the unconfirmed finished-pack size target.
+- `docs/power-budget.md` – corrected the runtime calculation and added the local AI load scenario. I also made the cell reference URL consistent.
+- `docs/battery-pack-spec.md` – corrected runtime and charging notes and added the cell identification warning.
+- `docs/battery-and-charging.md` – added the cell warning and clarified charge voltage and car-charger current.
+- `docs/power-test-plan.md` – changed the normal-use target to about 8 hours and added closed-case temperature testing.
+- `docs/case-fit.md` – updated the approximate case dimensions and added heat and cold notes.
+- `docs/system-block-diagram.md` – updated the power path and the list of open decisions.
+- `docs/electrical-design.md` – added the charge input, safe shutdown, Geekworm and screen power notes. Clarified the KiCad status.
+- `docs/design-decisions.md` – aligned the recorded choices and open questions with the current plan.
+- `hardware/power-overview/README.md` – aligned the KiCad folder notes with the current power plan.
+- `docs/software-plan.md` – added the planned OS, maps, local AI, LoRa, GPS and first tests.
+- `LICENSE` – added the MIT License as requested.
+- `docs/work-log.md` – recorded this review.
+
+I did not add an AI-use line to the README.
+
+The runtime calculation is 192 Wh × 0.8 × 0.9 = 138.24 Wh. The corrected estimates are about 11.5 hours at 12 W, 9.2 hours at 15 W and 7.3 hours at 19 W. These are calculations, not test results.
+
+The case dimensions are approximate: about 250 × 185 × 55 mm. I have not treated them as exact usable dimensions.
+
+The KiCad schematic and project file remain planning files. I did not claim that ERC/DRC passed or that a PCB is ready.
