@@ -1,87 +1,75 @@
 # Battery pack specification
 
-I am choosing a **supplier-made 4S1P LiFePO4 pouch-cell pack** for V1. I am not going to build this high-energy pack from loose cells at home.
+## Selected V1 direction
 
-## Cell size that looks promising
+I am changing the battery choice. The 25 Ah pouch cells are very thin, but each cell is about 239 × 155 mm. A 4S pack would cover almost the whole floor of the case. That leaves too little room for the Pi, SSD, converters and wiring.
 
-Topwell lists a 3.2 V, 25 Ah LiFePO4 pouch cell (model 66F6Q0):
+For V1 I choose a **supplier-built 4S1P LiFePO4 pack using four 3.2 V 15 Ah Gotion 33140 cylindrical cells**.
 
+Cell reference:
+https://www.lifepo4cells.eu/en/cell/gotion-33140-15ah-3-2v-lifepo4-cell/
+
+The listed cell data is:
+- LiFePO4 chemistry
 - 3.2 V nominal
-- 25 Ah
-- 6.6 mm maximum thickness
-- 155 mm wide
-- 239 mm long
-- 480 g
-- 2C continuous discharge listed
+- 15 Ah
+- 48 Wh per cell
+- 33.2 × 140 mm
+- about 267 g
+- 3.65 V charge voltage
+- 1C maximum continuous discharge listed
 
-Product page: https://www.topwellpower.com/products/5c-32v-20ah-lithium-iron-phosphate-pouch-cell
+Four cells in series give:
+- 12.8 V nominal
+- 15 Ah
+- 192 Wh nominal energy
+- 14.6 V maximum charge voltage if the final cell datasheet confirms 3.65 V per cell
 
-The product table lists 25 Ah for this cell. The exact manufacturer's datasheet and current production details must be confirmed with the pack builder before payment.
+## Why this layout
 
-## Pack I want made
+The four cylindrical cells can be arranged next to each other as a flat 2D group, rather than stacked into a tall block. The cell-only envelope is roughly 140 × 133 × 33.2 mm if arranged with all four cylinders parallel and side by side. The real pack will be larger after holders, insulation, BMS and wiring.
 
-Four of these cells connected in series (4S1P):
+This should leave more usable floor area than the large pouch-cell pack. It is not a confirmed fit yet. The supplier must send a dimensioned drawing and I must measure the actual case floor, including ribs and screw posts.
 
-- Nominal voltage: 12.8 V
-- Maximum charge voltage: 14.6 V (4 × 3.65 V, only if confirmed by the cell datasheet)
-- Capacity: 25 Ah
-- Nominal energy: 320 Wh
-- Cell mass: about 1.92 kg before BMS, wiring and protection
+Target finished pack envelope: **about 155 × 145 × 42 mm maximum**. This is a design target, not a confirmed product size.
 
-The four thin pouch cells could be stacked together. Cell thickness alone is about 26.4 mm. Their face is about 239 × 155 mm. This is much more promising than the 32700 cylindrical cell idea for the case.
+## Required pack build
 
-## Required finished pack size
+The pack must be assembled and tested by a battery supplier. I will not weld or assemble this high-energy pack from loose cells at home.
 
-The case has about 255 × 190 × 58 mm available in the lower section, based on my measurement. I want the supplier to target a complete pack no bigger than:
-
-**245 × 175 × 45 mm**
-
-This leaves a little space around the pack. It is still not confirmed that the actual flat area in the case is this large. I must measure between ribs, hinges and screw mounts before ordering.
-
-The supplier must include compression plates or another cell-manufacturer-approved way to support the pouch cells. The BMS and output leads must be included in the dimensioned drawing.
-
-## BMS and protection
-
-Ask for a complete 4S LiFePO4 pack with:
-
+Ask for:
+- four matched genuine Gotion 33140 15 Ah cells, or an equivalent documented cell
 - 4S LiFePO4 BMS, not a 4S Li-ion BMS
 - balancing
-- overcharge and over-discharge protection
-- over-current and short-circuit protection
-- cell temperature sensors
-- charge cut-off below 0 °C (or the exact lower limit in the cell datasheet)
-- discharge temperature protection
-- at least 15 A continuous discharge capability
-- 10 A maximum charge current unless the final cell datasheet and BMS allow more
-- insulated terminals and protected output connector
-- pack test report and cell batch information
-- UN38.3 test summary for transport
+- overcharge, over-discharge, over-current and short-circuit protection
+- cell temperature sensing
+- low-temperature charge cut-off (charging must stop below the cell maker's permitted temperature)
+- at least 10 A continuous discharge capability
+- insulated terminals and a protected output connector
+- cell batch details, pack test report and UN38.3 transport test summary
+- exact pack dimensions and weight
+- confirmation of charge voltage and maximum charge current
 
-The pack builder must confirm the correct charge voltage. I will not assume 14.6 V until the exact cell data is confirmed.
-
-## Supplier to contact
-
-Topwell Power lists the pouch cell and says it can supply custom cells. Ask them or a professional battery-pack maker to quote the complete 4S1P pack to the dimensions above.
-
-Cell reference: https://www.topwellpower.com/products/5c-32v-20ah-lithium-iron-phosphate-pouch-cell
-
-I have not ordered it and have not received a quote. Do not buy individual pouch cells and assemble them at home.
+The final BMS current rating, fuse and charger settings must match the supplier's datasheet.
 
 ## Runtime estimate
 
-At 25 Ah and 12.8 V the nominal energy is 320 Wh.
+The nominal pack energy is 192 Wh.
 
 Using 80% usable energy and 90% converter efficiency:
+- At 15 W average system load: about 10.2 hours
+- At 19 W average system load: about 8.1 hours
 
-- At 15 W average load: about 17.1 hours
-- At 19 W average load: about 13.5 hours
-
-This is only a calculation. Cold weather, battery ageing and real system load can lower it. The 10-hour target has a reasonable energy margin on paper, but needs a real test.
+These are calculations, not measured runtime. Cold weather, battery ageing, screen brightness, CPU load and radio activity can reduce runtime. A realistic first target is **around 8 hours**, with 10 hours possible only at a lower average load.
 
 ## Charging
 
-Use a dedicated external 4S LiFePO4 charger. For the first design I choose a **5 A charger**, but its exact output voltage must match the final cell and BMS specification.
+Use an external charger with a LiFePO4 profile. The final charge voltage must match the exact cell and pack datasheet. A 14.2 V charger preset must not be assumed to fully charge cells specified for 14.6 V. Confirm this with the pack builder before buying a charger.
 
-For charging from a car, use a DC-DC charger with a programmable LiFePO4 profile and current limit. Do not connect the pack directly to the car socket or alternator.
+For car charging, use a programmable DC-DC charger and set its voltage and current only after the pack maker confirms them.
 
 No 230 V mains wiring goes inside the case.
+
+## Status
+
+This is the selected design direction, not an order. The exact cell datasheet, supplier-built pack, BMS, dimensions, connector and charger compatibility still need written confirmation before purchase.
