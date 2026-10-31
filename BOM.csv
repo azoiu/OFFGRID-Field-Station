@@ -10,7 +10,7 @@ Custom LiFePO4 battery pack 4S1P 15Ah,1,,,,Battery pack supplier,https://www.lif
 Matched 4S LiFePO4 BMS,1,,,,Battery pack supplier,,Included in pack,Must have balancing temperature sensing and low-temperature charge cut-off
 LiFePO4 wall charger,1,,,,To select,,Not selected,Choose only after pack supplier confirms charge voltage and current
 Programmable car DC-DC charger,1,,,,To select,,Not selected,Choose and configure after pack supplier confirms charge profile
-Geekworm Pi5-5V5APD terminal block version,1,,,,Geekworm,https://wiki.geekworm.com/Pi5-5V5APD,Selected module,9-24V input and USB-C 5V 5A PD output; needs over 30W input for full output
+Geekworm Pi5-5V5APD,1,,,,Geekworm,https://wiki.geekworm.com/Pi5-5V5APD,Selected module,9-24V input and USB-C 5V 5A PD output; terminal-block version availability to confirm
 Pololu D24V50F5 screen converter,1,,,,Pololu,https://www.pololu.com/product/2851/specs,Selected module,6-38V input 5V output; mount with airflow
 Main fuse and holder,1,,,,To select,,Design target,10A starting value; verify with measured current and cable rating
 Main DC switch,1,,,,To select,,Design target,At least 15A DC at 16V
