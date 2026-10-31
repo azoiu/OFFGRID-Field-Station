@@ -1,6 +1,10 @@
 # OFFGRID
 
+**Status: design stage. Nothing is built or tested yet.**
+
 OFFGRID is a computer in a hard case. I want to use it outside, also where there is no internet or phone signal.
+
+**Scope:** V1 includes a Raspberry Pi 5 cyberdeck with local files and AI, offline maps of Slovenia, GPS, LoRa messaging and a LiFePO4 battery.
 
 ## What I want to put in it
 
@@ -17,7 +21,7 @@ I already have the case, keyboard and 3D printer.
 
 ## Case
 
-The case is a SINOCASE SC001 from Temu. The inside is listed as 255 × 190 × 85 mm. I measured about 5.8 cm usable space in the bottom part.
+The case is a SINOCASE SC001 from Temu. The approximate inside dimensions are about 250 × 185 × 55 mm. The usable space can be smaller because of ribs, hinges and screw posts.
 
 I don't want a bigger case, so the parts have to fit in this one. The screen should go in the lid.
 
@@ -31,6 +35,7 @@ I don't want a bigger case, so the parts have to fit in this one. The screen sho
 - [Battery and charging plan](docs/battery-and-charging.md)
 - [Power test plan](docs/power-test-plan.md)
 - [Case fit notes](docs/case-fit.md)
+- [Software plan](docs/software-plan.md)
 - [Work log](docs/work-log.md)
 - [KiCad power overview](hardware/power-overview/README.md)
 
@@ -38,9 +43,20 @@ I don't want a bigger case, so the parts have to fit in this one. The screen sho
 
 The current battery design target is a supplier-built 4S1P LiFePO4 pack using four 3.2 V 15 Ah Gotion 33140 cells. This gives 12.8 V, 15 Ah and 192 Wh. The cell-only arrangement is about 140 × 133 × 33.2 mm. The complete pack will be larger and its dimensions are not confirmed.
 
-The Pi power module is Geekworm Pi5-5V5APD and the screen converter is Pololu D24V50F5. The Geekworm output voltage needs to be checked carefully: its published test shows 4.987 V at 5 A without the boost jumper and 5.127 V at 5 A with it. The jumper also raises the no-load voltage. This needs a real load test before final selection.
+The Pi power module is Geekworm Pi5-5V5APD and the screen converter is Pololu D24V50F5. The Geekworm output voltage needs to be checked carefully before use.
 
-The first runtime estimate is about 8–10 hours, depending on load. This is only a calculation, not a measured result. Chargers are not selected until the battery supplier confirms the charge profile.
+The runtime estimate is about **7–9 hours**, depending on load. This is a calculation, not measured runtime. With local AI running, the average load may be about 19 W or more, giving about 7 hours or less. Chargers are not selected until the battery supplier confirms the charge profile.
+
+## Open questions
+
+- Exact battery pack, BMS, connector and finished dimensions
+- Wall and car chargers and their settings
+- Exact GPS breakout board
+- UART pins
+- Final case layout
+- Keyboard placement in the case is not decided yet
+- Cooling and closed-case temperatures
+- Real runtime and power measurements
 
 ## Maybe later
 
