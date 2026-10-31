@@ -21,8 +21,8 @@ Updated in this power-design pass:
 - `README.md` – current battery and power architecture.
 - `BOM.csv` – updated battery, converter and charger rows.
 - `docs/BOM.md` – parts list and selected modules.
-- `docs/battery-pack-spec.md` – changed from the 32700 idea to a 4S1P pouch-cell pack.
-- `docs/battery-and-charging.md` – updated battery and charging plan.
+- `docs/battery-pack-spec.md` – selected 4S1P pouch-cell pack specification.
+- `docs/battery-and-charging.md` – selected wall and car charger models.
 - `docs/power-budget.md` – recalculated estimate for 320 Wh battery.
 - `docs/electrical-design.md` – selected power modules, wiring and protection.
 - `docs/case-fit.md` – corrected battery layout idea.
@@ -38,12 +38,12 @@ Updated in this power-design pass:
 - Screen power: Pololu D24V50F5.
 - Main fuse: 10 A starting value, must be checked against measured current and cable size.
 - Main switch: DC rated for at least 15 A at 16 V.
-- Wall charging: external 5 A LiFePO4 charger, final voltage matched to pack.
-- Car charging: Victron Orion-Tr Smart DC-DC charger, exact variant and charge current must match the car and battery.
+- Wall charger: Victron Blue Smart IP65 12/5, 14.2 V Li-ion mode only if the pack maker approves it.
+- Car charger: Victron Orion-Tr Smart 12/12-18A isolated, configure for the pack and limit to 5 A.
 
 ## Important things found
 
-- Raspberry Pi 5 needs 5.1 V. The Geekworm module gives a USB-C 5 V/5 A PD output and needs more than 30 W input for full output.
+- Raspberry Pi 5 needs 5.1 V. The Geekworm module gives a USB-C 5 V/5 A PD output and needs more than 30 W input for full output. Check voltage at the Pi under full load.
 - Pololu D24V50F5 accepts 6–38 V and gives 5 V output. Its real current depends on cooling.
 - Topwell lists a 25 Ah LiFePO4 pouch cell around 239 × 155 × 6.6 mm. Four cells in series have about 26.4 mm cell thickness before pack protection and compression.
 - A 320 Wh pack gives an estimate of about 17.1 h at 15 W and 13.5 h at 19 W, using 80% usable energy and 90% converter efficiency.
@@ -53,7 +53,7 @@ Updated in this power-design pass:
 
 - Battery quote, final datasheet and dimensioned drawing.
 - Measure the real flat area inside the case.
-- Confirm exact charging voltage from the cell maker.
+- Confirm charging voltage and charger compatibility with the exact cells.
 - Confirm exact GPS breakout and screen connector.
 - Verify fuse, cable and connector ratings.
 - Make the final KiCad electrical schematic and PCB carrier board.
