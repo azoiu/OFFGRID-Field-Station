@@ -1,22 +1,30 @@
 # Wiring notes
 
-This is my first idea for the wiring. It is not finished yet because I still need to choose the battery and power parts.
+This is the current idea for the wiring. It is still not a finished circuit. I need to choose the battery and exact converters before making the final KiCad schematic.
 
-## Power
+## Power idea
+
+I am looking at a 4S LiFePO4 battery (12.8 V nominal). A 20 Ah pack is the first size to investigate, but it must fit the case.
 
 ```mermaid
 flowchart LR
-    BAT["LiFePO4 battery"] --> BMS["BMS"]
-    BMS --> FUSE["Fuse"]
-    FUSE --> SW["Main switch"]
-    SW --> PCB["Power board"]
-    PCB --> PI["5.1 V for Pi 5"]
-    PCB --> LCD["Power for screen"]
+    BAT["12.8 V LiFePO4 pack (not selected)"] --> BMS["4S LiFePO4 BMS"]
+    BMS --> FUSE["Main fuse"]
+    FUSE --> SW["Main DC switch"]
+    SW --> BUS["Power distribution"]
+    BUS --> PI_DCDC["5.1 V converter, 5 A or more"]
+    BUS --> LCD_DCDC["5 V converter, 2 A or more"]
+    PI_DCDC --> PI["Raspberry Pi 5"]
+    LCD_DCDC --> LCD["8-inch screen"]
 ```
 
-The battery voltage is not decided yet. I need to choose the battery, BMS and charger so they work together.
+The voltage and current values above are design targets, not selected parts.
 
-The Pi needs a stable 5.1 V supply with enough current. The screen needs the voltage and current written in its datasheet. I will choose the converters after checking these things.
+## Why separate converters?
+
+The Pi 5 can need a 5 V, 5 A supply to support the board and USB devices. The screen is listed at about 4 W. I want separate converters so a load change on the screen does not cause the Pi to reboot.
+
+The Pi converter should be rated for at least 5 A continuous at 5.1 V, with enough cooling. The screen converter should provide 5 V and at least 2 A. I need to check the real current and startup peaks before buying.
 
 ## Main station connections
 
@@ -26,12 +34,14 @@ The Pi needs a stable 5.1 V supply with enough current. The screen needs the vol
 | Pi 5 to screen | HDMI for picture, USB for touch |
 | Pi 5 to GPS | UART or USB, not decided |
 | Pi 5 to Heltec | UART, pins not decided |
-| Power board to Pi | 5.1 V supply |
-| Power board to screen | Supply to be checked |
+| Battery to BMS | Battery pack wiring, must match the pack |
+| BMS to fuse and switch | DC power path |
+| Power distribution to Pi | 5.1 V converter |
+| Power distribution to screen | Separate 5 V converter |
 
 ## Handheld connections
 
-The handheld has a Waveshare ESP32-S3 screen and a separate Heltec LoRa board.
+The handheld has a Waveshare ESP32-S3 screen and a separate Heltec LoRa board. It will have its own battery.
 
 | Waveshare | Heltec | What it does |
 |---|---|---|
@@ -41,13 +51,23 @@ The handheld has a Waveshare ESP32-S3 screen and a separate Heltec LoRa board.
 
 These are the pins I plan to use. I need to check the exact board versions before soldering. Do not connect 5 V to these GPIO pins.
 
-## Before I make the PCB
+## Charging
 
-- Pick the battery and check its BMS.
+- Wall charging: external charger for the selected 4S LiFePO4 pack.
+- Car charging: automotive DC-DC charger with a LiFePO4 profile.
+- No 230 V mains wiring inside the case.
+- Do not connect a car socket directly to the battery.
+
+The charger voltage and current must follow the battery manufacturer's instructions.
+
+## Before making a PCB
+
+- Pick the exact battery and check its BMS.
 - Pick a charger that matches the battery.
-- Choose converters for the Pi and screen.
-- Work out fuse and wire sizes from the actual current.
-- Check connector pinouts.
+- Choose converters and read their datasheets.
+- Work out fuse and wire sizes from the real current and cable length.
+- Check connector pinouts and polarity.
+- Check the converter temperature at full load.
 - Draw the final circuit in KiCad and run ERC.
 
-**Important:** This is not a finished circuit. I should not connect the battery or make the power PCB using only these notes. The missing values need to be checked first.
+**Important:** This is not a finished circuit. Do not connect the battery or make a power PCB using only these notes. The missing parts and ratings need to be checked first.
