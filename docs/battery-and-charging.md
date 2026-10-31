@@ -2,13 +2,21 @@
 
 I decided to use LiFePO4 cells. I have not bought the battery yet.
 
-## First battery idea
+## First capacity target
 
-My first option to investigate is a **4S LiFePO4 pack (12.8 V nominal), around 20 Ah**.
+The first capacity target is around **12.8 V and 20 Ah** (about 256 Wh). This is based on the power estimate in [power-budget.md](power-budget.md).
 
-This would give about 256 Wh nominal energy. The power estimate is in [power-budget.md](power-budget.md).
+But there is a problem with the case. I measured only about 58 mm usable depth in the bottom part. Most ready-made 12.8 V 20 Ah battery blocks are around 75–80 mm thick, so they will not fit flat in the bottom. For example, the ECTIVE LC 20L datasheet gives dimensions of 180 × 75 × 170 mm.
 
-I have not selected a battery model because I still need to check its size. The case is small and I do not want to change it just to fit a battery.
+So I should not order a normal battery block yet.
+
+## Possible way to make it fit
+
+I need to look for a flat 4S LiFePO4 pack that is made to fit the case. One option could be a supplier-made pack using matched cells arranged flat, with a proper 4S LiFePO4 BMS.
+
+I should not build a high-capacity lithium pack from loose cells myself without the right equipment and experience. The pack needs correct cell matching, mechanical support, insulation, fusing and a suitable BMS.
+
+The pack must fit inside the measured space with room for wires, connectors and insulation. It also needs to be fixed so it cannot move if the case is carried.
 
 ## Parts needed
 
@@ -26,7 +34,7 @@ The BMS must be made for 4S LiFePO4. A BMS for 4S Li-ion is not the same thing.
 
 I want to use an external certified AC charger for a 4S LiFePO4 battery. This keeps mains voltage outside the case.
 
-A 12.8 V LiFePO4 battery commonly uses a charge voltage around 14.2 V, but the exact value and charge current must match the battery maker's instructions. I must not choose the charger only by its plug.
+The charge voltage must match the exact battery maker's instructions. Some 12.8 V LiFePO4 batteries specify 14.2 V and some specify 14.6 V, so I must not pick a charger from the nominal voltage alone.
 
 ## Charging in a car
 
@@ -36,14 +44,11 @@ The car charger must also have the correct current limit and protection for vehi
 
 ## What I have not selected yet
 
-- Exact battery brand and model
-- Battery dimensions and weight
+- Exact battery pack and dimensions
 - BMS current rating and protections
 - AC charger model
 - Car DC-DC charger model
 - Fuse value and wire size
-
-I will choose these after the battery and converters are checked together.
 
 ## Safety
 
@@ -53,7 +58,8 @@ Do not bypass the BMS. Do not test an unknown battery pack unattended. Insulate 
 
 Do not put 230 V mains wiring inside the case for this version. Use an external certified charger.
 
-Useful reference:
+Useful references:
+- [ECTIVE LC 20L battery datasheet](https://www.ective.de/mediafiles/Datenblatt/ective/LC-BT/Ective-LC-20L-BT-EN.pdf)
 - [Victron LiFePO4 charging guidance](https://www.victronenergy.com/media/pg/Lithium_Battery_Smart/en/operation.html)
 
 This is still a plan. The exact battery and charger must be selected before wiring or ordering.
