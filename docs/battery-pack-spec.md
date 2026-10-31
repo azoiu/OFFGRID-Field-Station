@@ -1,73 +1,87 @@
-# Battery pack idea
+# Battery pack specification
 
-I found a cell size that could solve the space problem. This is a design proposal, not an order yet.
+I am choosing a **supplier-made 4S1P LiFePO4 pouch-cell pack** for V1. I am not going to build this high-energy pack from loose cells at home.
 
-## The cells
+## Cell size that looks promising
 
-One possible cell is the Akkuplus LFP32700 LiFePO4 cell:
+Topwell lists a 3.2 V, 25 Ah LiFePO4 pouch cell (model 66F6Q0):
 
 - 3.2 V nominal
-- 6 Ah
-- about 70 × 32 mm
-- about 132 g
-- product page: https://akkuplus.de/Akkuplus-LFP32700-32700-32-Volt-6000mAh-LiFePO4
+- 25 Ah
+- 6.6 mm maximum thickness
+- 155 mm wide
+- 239 mm long
+- 480 g
+- 2C continuous discharge listed
 
-The supplier says that the cells must be used with protection electronics. The exact cell datasheet and batch details must be checked before a pack is made.
+Product page: https://www.topwellpower.com/products/5c-32v-20ah-lithium-iron-phosphate-pouch-cell
 
-## Proposed pack: 4S4P
+The product table lists 25 Ah for this cell. The exact manufacturer's datasheet and current production details must be confirmed with the pack builder before payment.
 
-I think the best target is **4S4P**, made by a battery pack supplier.
+## Pack I want made
 
-- 4 cells in series = 12.8 V nominal
-- 4 cells in parallel = 24 Ah
-- energy = about 307 Wh
-- 16 cells total
-- cell mass alone = about 2.1 kg
+Four of these cells connected in series (4S1P):
 
-This is more capacity than 4S3P. It gives us a better chance of reaching 10 hours when the system is using more power.
-
-At 15 W average, a rough estimate with 80% usable battery energy and 90% converter efficiency is about 14.7 hours. At 19 W it is about 11.6 hours. These are calculations, not tested runtime. Cold weather, battery ageing and the real power draw can reduce it.
-
-## Possible physical layout
-
-The cells are cylindrical. A supplier could lay them with their long axes parallel to the bottom of the case. The cell group could be arranged as a 4 by 4 grid:
-
-- about 130 × 130 mm footprint
-- about 32.5 mm cell diameter in the vertical direction
-- about 70 mm cell length along the bottom
-
-This is only the cell geometry. The BMS, insulation, busbars, wires and case need extra space. The supplier must confirm the final outer dimensions. Our available space is about 255 × 190 × 58 mm, but the real flat area still needs measuring.
-
-## What I want the supplier to build
-
-Please quote a complete pack with:
-
-- Chemistry: LiFePO4
-- Configuration: 4S4P
-- Cells: 32700, 3.2 V, 6 Ah, same model and same production batch
 - Nominal voltage: 12.8 V
-- Capacity: 24 Ah
-- BMS: 4S LiFePO4, balancing and over/under-voltage, over-current, short-circuit and temperature protection
-- Low-temperature charge cut-off
-- Continuous discharge rating: at least 15 A (supplier to confirm)
-- Main fuse close to pack positive
-- Insulated enclosure or proper insulation and mechanical cell holder
-- Output connector and separate charging connection
-- Outer dimensions target: maximum 200 × 160 × 48 mm if possible
-- Ask for UN38.3 transport test summary and cell datasheets
+- Maximum charge voltage: 14.6 V (4 × 3.65 V, only if confirmed by the cell datasheet)
+- Capacity: 25 Ah
+- Nominal energy: 320 Wh
+- Cell mass: about 1.92 kg before BMS, wiring and protection
 
-The 15 A target gives margin over the expected system current, but the final value must be checked with the selected converters and measured startup current.
+The four thin pouch cells could be stacked together. Cell thickness alone is about 26.4 mm. Their face is about 239 × 155 mm. This is much more promising than the 32700 cylindrical cell idea for the case.
 
-## Supplier options to ask
+## Required finished pack size
 
-- EEMENTOR ENERGY: https://energy.eementor.co/collections/battery-pack — says it builds packs to order and offers 32700 LiFePO4 cells, BMS and custom dimensions.
-- EEMENTOR 32700 cell details: https://energy.eementor.co/products/lfp32700-32700-lifepo4-cell
-- Akkuplus single cell: https://akkuplus.de/Akkuplus-LFP32700-32700-32-Volt-6000mAh-LiFePO4
+The case has about 255 × 190 × 58 mm available in the lower section, based on my measurement. I want the supplier to target a complete pack no bigger than:
 
-I have not received a quote or confirmation that the pack will fit. Do not order cells yet.
+**245 × 175 × 45 mm**
 
-## Important
+This leaves a little space around the pack. It is still not confirmed that the actual flat area in the case is this large. I must measure between ribs, hinges and screw mounts before ordering.
 
-I do not want to solder or spot-weld this large pack at home. A supplier should assemble, insulate and test it. We can design the mounting bracket and connect the finished protected pack to OFFGRID after checking its datasheet.
+The supplier must include compression plates or another cell-manufacturer-approved way to support the pouch cells. The BMS and output leads must be included in the dimensioned drawing.
 
-The charger must match the final pack instructions. Do not assume that every 12.8 V LiFePO4 pack uses the same charge voltage.
+## BMS and protection
+
+Ask for a complete 4S LiFePO4 pack with:
+
+- 4S LiFePO4 BMS, not a 4S Li-ion BMS
+- balancing
+- overcharge and over-discharge protection
+- over-current and short-circuit protection
+- cell temperature sensors
+- charge cut-off below 0 °C (or the exact lower limit in the cell datasheet)
+- discharge temperature protection
+- at least 15 A continuous discharge capability
+- 10 A maximum charge current unless the final cell datasheet and BMS allow more
+- insulated terminals and protected output connector
+- pack test report and cell batch information
+- UN38.3 test summary for transport
+
+The pack builder must confirm the correct charge voltage. I will not assume 14.6 V until the exact cell data is confirmed.
+
+## Supplier to contact
+
+Topwell Power lists the pouch cell and says it can supply custom cells. Ask them or a professional battery-pack maker to quote the complete 4S1P pack to the dimensions above.
+
+Cell reference: https://www.topwellpower.com/products/5c-32v-20ah-lithium-iron-phosphate-pouch-cell
+
+I have not ordered it and have not received a quote. Do not buy individual pouch cells and assemble them at home.
+
+## Runtime estimate
+
+At 25 Ah and 12.8 V the nominal energy is 320 Wh.
+
+Using 80% usable energy and 90% converter efficiency:
+
+- At 15 W average load: about 17.1 hours
+- At 19 W average load: about 13.5 hours
+
+This is only a calculation. Cold weather, battery ageing and real system load can lower it. The 10-hour target has a reasonable energy margin on paper, but needs a real test.
+
+## Charging
+
+Use a dedicated external 4S LiFePO4 charger. For the first design I choose a **5 A charger**, but its exact output voltage must match the final cell and BMS specification.
+
+For charging from a car, use a DC-DC charger with a programmable LiFePO4 profile and current limit. Do not connect the pack directly to the car socket or alternator.
+
+No 230 V mains wiring goes inside the case.
