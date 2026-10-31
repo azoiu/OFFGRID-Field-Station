@@ -6,14 +6,14 @@ Waveshare 8-inch touchscreen,1,93.50,EUR,93.50,Opencircuit,https://opencircuit.s
 Heltec LoRa 32 V3 EU868,2,22.95,EUR,45.90,Hexaspot,https://hexaspot.com/collections/heltec/products/heltec-wifi-lora-32-v3,Planned,One for the main station and one for the handheld
 u-blox M10 GPS,1,16.40,EUR,16.40,Neven7,https://www.neven7.eu/p/ublox-m10-gps-module-with-an-active-antenna,Planned,Needs 3.3V
 Waveshare ESP32-S3-Touch-LCD-2.8 V2,1,,,,Waveshare,https://www.waveshare.com/product/esp32-s3-touch-lcd-2.8.htm,Planned,Price not checked
-LiFePO4 battery pack,1,,,,,,To choose,Need to choose voltage capacity BMS and size
-Charger for LiFePO4 battery,1,,,,,,To choose,Must match the battery
+LiFePO4 battery pack (4S, flat pack preferred),1,,,,,,To choose,12.8V 20Ah is a capacity target only; standard hard-case battery blocks are too thick for the measured 58mm bottom space
+External 4S LiFePO4 mains charger,1,,,,,,To choose,Must match the final battery maker's charge voltage and current
 Geekworm Pi5-5V5APD power module,1,,,,Geekworm,https://wiki.geekworm.com/Pi5-5V5APD,Not selected,Input is 9-24V so check if it works with the chosen battery
 DC/DC converter for Pi 5,1,,,,,,To choose,Needs stable 5.1V and enough current
 Power supply for main screen,1,,,,,,To choose,Check the screen datasheet
 Fuse and holder,1,,,,,,To choose,Choose after battery and current are known
 Main power switch,1,,,,,,To choose,Choose correct current rating
-Charging connector and wires,1,,,,,,To choose,Match the battery and charger
+Automotive LiFePO4 DC-DC charger,1,,,,,,Optional,For charging from a vehicle; select after battery choice
 Power PCB and connectors,1,,,,,,To design,
 Micro-HDMI to HDMI cable,1,,,,,,To buy,
 USB cable for touchscreen,1,,,,,,To buy,
