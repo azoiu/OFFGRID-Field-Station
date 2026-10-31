@@ -36,11 +36,11 @@ I don't want a bigger case, so the parts have to fit in this one. The screen sho
 
 ## Current power design
 
-The selected design target is a supplier-made 4S1P LiFePO4 pouch pack, 12.8 V and 25 Ah (320 Wh). The pack must fit within 245 × 175 × 45 mm and include a matched BMS. This is a specification to send to a battery supplier, not a battery already purchased.
+The current battery design target is a supplier-built 4S1P LiFePO4 pack using four 3.2 V 15 Ah Gotion 33140 cells. This gives 12.8 V, 15 Ah and 192 Wh. The cell-only arrangement is about 140 × 133 × 33.2 mm. The complete pack will be larger and its dimensions are not confirmed.
 
-The Pi uses a Geekworm Pi5-5V5APD module. The screen uses a Pololu D24V50F5 converter. Exact battery connector and final fuse sizing still need verification.
+The Pi power module is Geekworm Pi5-5V5APD and the screen converter is Pololu D24V50F5. The Geekworm output voltage needs to be checked carefully: its published test shows 4.987 V at 5 A without the boost jumper and 5.127 V at 5 A with it. The jumper also raises the no-load voltage. This needs a real load test before final selection.
 
-The first runtime estimate is about 8–10 hours, depending on load. This must be tested.
+The first runtime estimate is about 8–10 hours, depending on load. This is only a calculation, not a measured result. Chargers are not selected until the battery supplier confirms the charge profile.
 
 ## Maybe later
 
