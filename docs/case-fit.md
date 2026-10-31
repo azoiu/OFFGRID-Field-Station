@@ -1,30 +1,35 @@
 # Case fit notes
 
-I want to keep the SINOCASE SC001. I measured about 58 mm of usable depth in the bottom part. The listed inside size of the case is 255 × 190 × 85 mm, but I still need to measure the exact flat area between ribs and mounts.
+I want to keep the SINOCASE SC001. The listed inside size is 255 × 190 × 85 mm. I measured about 58 mm usable depth in the bottom part.
 
 ## Screen
 
-The main screen is the Waveshare 8DP-CAPLCD. The shop listing identifies it as the 8-inch 1280 × 800 model. Its touch panel size is about 194 × 119 mm.
+The main screen is the Waveshare 8DP-CAPLCD. Its panel size is about 194 × 119 mm. It should fit the general case footprint, but I still need a physical template to check the lid, hinge and bezel.
 
-This should fit the general 255 × 190 mm case footprint, but I still need to make a cardboard or 3D printed template and check the lid opening, hinge and bezel.
+## Battery choice
 
-## Battery warning
+I am no longer using the 32700 cylindrical-cell idea. It was not a good layout for the shallow case because the cells are about 70 mm long.
 
-A common ready-made 12.8 V 20 Ah LiFePO4 battery is around 180 × 75 × 170 mm. That is too thick for the 58 mm space if placed in the normal orientation.
+The new choice is a supplier-made 4S1P pouch-cell LiFePO4 pack. A 25 Ah pouch cell listed by Topwell is about 239 × 155 × 6.6 mm. Four cells in series have about 26.4 mm cell thickness before compression plates, insulation, BMS and wiring.
 
-So the 20 Ah battery is only a capacity target. It is not a selected battery and it should not be ordered before checking the dimensions.
+Reference: https://www.topwellpower.com/products/5c-32v-20ah-lithium-iron-phosphate-pouch-cell
 
-A flatter custom pack might fit, but it needs a proper battery supplier, matched cells, a suitable 4S LiFePO4 BMS and a mechanical holder. I should not assemble a large lithium pack from loose cells without the right equipment and experience.
+The complete pack must be made to a maximum target size of **245 × 175 × 45 mm**. The supplier must provide a dimensioned drawing. The real flat area inside the case must be measured before ordering.
 
-## What to measure on the real case
+## Layout plan
 
-- Clear bottom footprint, not only the outside dimensions.
-- Height at the lowest and highest points.
-- Space taken by the hinges and lid.
-- Space for connectors, fuse, switch and wires.
-- Space needed for airflow around the Pi and converters.
-- Whether the battery can be secured so it cannot move.
+- Battery flat on the bottom of the case.
+- Raspberry Pi and SSD above or beside the battery only if cooling and service access remain possible.
+- Keep the DC/DC modules away from the pouch cell and give them airflow.
+- Put the screen in the lid.
+- Secure the battery so it cannot slide or be crushed when the case is carried.
 
-## Current result
+## Measurements still needed
 
-The screen looks possible based on its panel size. The battery is the main fit problem at the moment. I need real measurements before making a final internal layout.
+- Clear flat bottom area between ribs.
+- Actual depth at battery location.
+- Hinge and screw mount positions.
+- Height available with the lid closed.
+- Space for cable bends, fuse and switch.
+
+The battery cell size looks promising, but the finished pack fit is not confirmed until the supplier sends its drawing and I check the case with a template.
