@@ -20,7 +20,7 @@ The complete pack will be larger because of the BMS, holders, insulation and wir
 
 - Battery flat on the bottom of the case.
 - Raspberry Pi and SSD above or beside the battery only if cooling and service access remain possible.
-- Keep the DC/DC modules away from the pouch cell and give them airflow.
+- Keep the DC/DC modules away from the battery and give them airflow.
 - Put the screen in the lid.
 - Secure the battery so it cannot slide or be crushed when the case is carried.
 
