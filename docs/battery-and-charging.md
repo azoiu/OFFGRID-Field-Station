@@ -1,67 +1,53 @@
 # Battery and charging
 
-I decided to use LiFePO4 cells. I have not bought the battery yet.
+For V1 I choose a **supplier-made 4S1P LiFePO4 pouch-cell pack**. I will not build this large battery from loose cells at home.
 
-## First capacity target
+## Battery target
 
-The first capacity target to investigate is around **12.8 V and 20 Ah** (about 256 Wh). This is based on the power estimate in [power-budget.md](power-budget.md). With the current 11–19 W load estimate, 20 Ah may be enough for 10 hours at the lower and middle part of the range, but it may be slightly short at the high end. A real test is needed.
+- 12.8 V nominal
+- 25 Ah
+- 320 Wh
+- 4 cells in series
+- matched 4S LiFePO4 BMS supplied with the pack
 
-But there is a problem with the case. I measured only about 58 mm usable depth in the bottom part. Most ready-made 12.8 V 20 Ah battery blocks are around 75–80 mm thick, so they will not fit flat in the bottom. For example, the ECTIVE LC 20L datasheet gives dimensions of 180 × 75 × 170 mm.
+Topwell lists a 3.2 V 25 Ah pouch cell with a size of about 239 × 155 × 6.6 mm. Four cells in series have about 26.4 mm cell thickness before compression plates, BMS, insulation and wiring.
 
-So I should not order a normal battery block yet.
+Cell page: https://www.topwellpower.com/products/5c-32v-20ah-lithium-iron-phosphate-pouch-cell
 
-## Possible way to make it fit
+I want the supplier to make the complete pack no bigger than 245 × 175 × 45 mm. The supplier must send a dimensioned drawing. I still need to measure the flat area in the real case.
 
-I need to look for a flat 4S LiFePO4 pack that is made to fit the case. One option could be a supplier-made pack using matched cells arranged flat, with a proper 4S LiFePO4 BMS.
+## BMS
 
-I should not build a high-capacity lithium pack from loose cells myself without the right equipment and experience. The pack needs correct cell matching, mechanical support, insulation, fusing and a suitable BMS.
+The battery must include a 4S LiFePO4 BMS with:
 
-The pack must fit inside the measured space with room for wires, connectors and insulation. It also needs to be fixed so it cannot move if the case is carried.
+- cell balancing
+- overcharge and over-discharge protection
+- over-current and short-circuit protection
+- cell temperature sensors
+- charge cut-off below 0 °C or the cell maker's stated limit
+- discharge temperature protection
 
-LiFePO4 packs commonly must not be charged below 0 °C unless the pack has a suitable low-temperature charging system. Since OFFGRID may be used outside in winter, I need to check the selected pack's charge temperature range. The BMS should stop charging when the cells are too cold.
+The pack builder must confirm the BMS current rating and the exact cell model.
 
-## Parts needed
+## Wall charger
 
-- 4S LiFePO4 battery pack with a built-in or correctly matched BMS.
-- 4S LiFePO4 charger.
-- Main fuse close to the battery positive terminal.
-- Main switch rated for DC current.
-- DC/DC converter for the Pi.
-- Separate DC/DC converter for the screen.
-- Proper connectors and insulated wires.
+I choose an external 5 A LiFePO4 charger as the starting design. Its output voltage must match the final cell datasheet and BMS. Do not assume 14.6 V until the supplier confirms the cell's charge voltage.
 
-The BMS must be made for 4S LiFePO4. A BMS for 4S Li-ion is not the same thing.
+The charger stays outside the case. No 230 V mains wiring inside OFFGRID.
 
-## Charging from a wall socket
+## Car charging
 
-I want to use an external certified AC charger for a 4S LiFePO4 battery. This keeps mains voltage outside the case.
+For charging from a car, use a Victron Orion-Tr Smart DC-DC charger in the correct 12 V input/output version. It must be configured for LiFePO4 and its charge current limited to the battery maker's allowed value. Do not connect the battery directly to the car socket or alternator.
 
-The charge voltage must match the exact battery maker's instructions. Some 12.8 V LiFePO4 batteries specify 14.2 V and some specify 14.6 V, so I must not pick a charger from the nominal voltage alone.
-
-## Charging in a car
-
-For car charging I will need a DC-DC charger made for a 12 V vehicle input and a 4S LiFePO4 output. I should not connect the battery straight to the car socket or alternator.
-
-The car charger must also have the correct current limit and protection for vehicle voltage changes.
-
-## What I have not selected yet
-
-- Exact battery pack and dimensions
-- BMS current rating and protections
-- AC charger model
-- Car DC-DC charger model
-- Fuse value and wire size
+Product information: https://www.victronenergy.com/dc-dc-converters/orion-tr-smart
 
 ## Safety
 
-Do not charge a LiFePO4 pack with a lead-acid or Li-ion charger unless the battery manufacturer specifically says it is compatible.
+- Do not bypass the BMS.
+- Do not charge below the cell maker's allowed temperature.
+- Insulate and cover all battery terminals.
+- Fit the main fuse close to battery positive.
+- Secure the battery so it cannot move or be crushed.
+- Do not use a lead-acid or Li-ion charger unless the battery maker explicitly approves it.
 
-Do not bypass the BMS. Do not test an unknown battery pack unattended. Insulate exposed battery terminals and fit the fuse close to the battery.
-
-Do not put 230 V mains wiring inside the case for this version. Use an external certified charger.
-
-Useful references:
-- [ECTIVE LC 20L battery datasheet](https://www.ective.de/mediafiles/Datenblatt/ective/LC-BT/Ective-LC-20L-BT-EN.pdf)
-- [Victron LiFePO4 charging guidance](https://www.victronenergy.com/media/pg/Lithium_Battery_Smart/en/operation.html)
-
-This is still a plan. The exact battery and charger must be selected before wiring or ordering.
+The pack is not ordered. I need the supplier's quotation, datasheet and dimensioned drawing before buying.
