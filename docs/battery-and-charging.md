@@ -4,7 +4,7 @@ I decided to use LiFePO4 cells. I have not bought the battery yet.
 
 ## First capacity target
 
-The first capacity target is around **12.8 V and 20 Ah** (about 256 Wh). This is based on the power estimate in [power-budget.md](power-budget.md).
+The first capacity target to investigate is around **12.8 V and 20 Ah** (about 256 Wh). This is based on the power estimate in [power-budget.md](power-budget.md). With the current 11–19 W load estimate, 20 Ah may be enough for 10 hours at the lower and middle part of the range, but it may be slightly short at the high end. A real test is needed.
 
 But there is a problem with the case. I measured only about 58 mm usable depth in the bottom part. Most ready-made 12.8 V 20 Ah battery blocks are around 75–80 mm thick, so they will not fit flat in the bottom. For example, the ECTIVE LC 20L datasheet gives dimensions of 180 × 75 × 170 mm.
 
@@ -17,6 +17,8 @@ I need to look for a flat 4S LiFePO4 pack that is made to fit the case. One opti
 I should not build a high-capacity lithium pack from loose cells myself without the right equipment and experience. The pack needs correct cell matching, mechanical support, insulation, fusing and a suitable BMS.
 
 The pack must fit inside the measured space with room for wires, connectors and insulation. It also needs to be fixed so it cannot move if the case is carried.
+
+LiFePO4 packs commonly must not be charged below 0 °C unless the pack has a suitable low-temperature charging system. Since OFFGRID may be used outside in winter, I need to check the selected pack's charge temperature range. The BMS should stop charging when the cells are too cold.
 
 ## Parts needed
 
