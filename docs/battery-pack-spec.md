@@ -31,7 +31,7 @@ The four cylindrical cells can be arranged next to each other as a flat 2D group
 
 This should leave more usable floor area than the large pouch-cell pack. It is not a confirmed fit yet. The supplier must send a dimensioned drawing and I must measure the actual case floor, including ribs and screw posts.
 
-Target finished pack envelope: **about 155 × 145 × 42 mm maximum**. This is a design target, not a confirmed product size.
+There is no confirmed finished-pack envelope yet. The pack supplier must send a dimensioned drawing. The cell-only envelope does not include the BMS, insulation, holder, terminals or wiring.
 
 ## Required pack build
 
