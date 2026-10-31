@@ -10,11 +10,11 @@ The main screen is the Waveshare 8DP-CAPLCD. Its panel size is about 194 × 119 
 
 I am no longer using the 32700 cylindrical-cell idea. It was not a good layout for the shallow case because the cells are about 70 mm long.
 
-The new choice is a supplier-made 4S1P pouch-cell LiFePO4 pack. A 25 Ah pouch cell listed by Topwell is about 239 × 155 × 6.6 mm. Four cells in series have about 26.4 mm cell thickness before compression plates, insulation, BMS and wiring.
+The new choice is a supplier-made 4S1P pack using four Gotion 33140 15 Ah LiFePO4 cells. Each cell is listed as about 33.2 mm diameter and 140 mm long. Four cells arranged next to each other use a cell-only envelope of roughly 140 × 133 × 33.2 mm.
 
-Reference: https://www.topwellpower.com/products/5c-32v-20ah-lithium-iron-phosphate-pouch-cell
+Reference: https://www.lifepo4cells.eu/en/cell/gotion-33140-15ah-3-2v-lifepo4-cell/
 
-The complete pack must be made to a maximum target size of **245 × 175 × 45 mm**. The supplier must provide a dimensioned drawing. The real flat area inside the case must be measured before ordering.
+The complete pack will be larger because of the BMS, holders, insulation and wiring. The supplier must provide a dimensioned drawing. The real flat area inside the case must be measured before ordering.
 
 ## Layout plan
 
