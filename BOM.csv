@@ -6,10 +6,10 @@ Waveshare 8-inch touchscreen 8DP-CAPLCD,1,93.50,EUR,93.50,Opencircuit,https://op
 Heltec LoRa 32 V3 EU868,2,22.95,EUR,45.90,Hexaspot,https://hexaspot.com/collections/heltec/products/heltec-wifi-lora-32-v3,Planned,One for main station and one for handheld
 u-blox M10 GPS breakout,1,16.40,EUR,16.40,Neven7,https://www.neven7.eu/p/ublox-m10-gps-module-with-an-active-antenna,Planned,Check exact breakout supply
 Waveshare ESP32-S3-Touch-LCD-2.8 V2,1,,,,Waveshare,https://www.waveshare.com/product/esp32-s3-touch-lcd-2.8.htm,Planned,Price not checked
-Custom LiFePO4 pouch battery pack 4S1P 25Ah,1,,,,Battery pack supplier,https://www.topwellpower.com/products/5c-32v-20ah-lithium-iron-phosphate-pouch-cell,Specification only,12.8V 25Ah 320Wh; supplier must build pack and confirm max 245x175x45mm with BMS
+Custom LiFePO4 battery pack 4S1P 15Ah,1,,,,Battery pack supplier,https://www.lifepo4cells.eu/en/cell/gotion-33140-15ah-3-2v-lifepo4-cell/,Specification only,12.8V 15Ah 192Wh; supplier-built pack with matched BMS; dimensions to confirm
 Matched 4S LiFePO4 BMS,1,,,,Battery pack supplier,,Included in pack,Must have balancing temperature sensing and low-temperature charge cut-off
-Victron Blue Smart IP65 12/5 charger,1,,,,Victron,https://www.victronenergy.com/media/pg/Blue_Smart_IP65_Charger_230V_manual/en/technical-specifications---bsc---psc.html,Selected if pack approved,Use 14.2V Li-ion mode only if battery supplier approves
-Victron Orion-Tr Smart 12/12-18A isolated,1,,,,Victron,https://www.victronenergy.com/media/pg/Orion-Tr_Smart_DC-DC_Charger_-_Isolated/en/specifications.html,Selected for car charging,Configure for LiFePO4 and limit charge current to 5A after supplier approval
+LiFePO4 wall charger,1,,,,To select,,Not selected,Choose only after pack supplier confirms charge voltage and current
+Programmable car DC-DC charger,1,,,,To select,,Not selected,Choose and configure after pack supplier confirms charge profile
 Geekworm Pi5-5V5APD terminal block version,1,,,,Geekworm,https://wiki.geekworm.com/Pi5-5V5APD,Selected module,9-24V input and USB-C 5V 5A PD output; needs over 30W input for full output
 Pololu D24V50F5 screen converter,1,,,,Pololu,https://www.pololu.com/product/2851/specs,Selected module,6-38V input 5V output; mount with airflow
 Main fuse and holder,1,,,,To select,,Design target,10A starting value; verify with measured current and cable rating
