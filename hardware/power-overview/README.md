@@ -9,12 +9,12 @@ Current V1 power direction:
 - matched 4S LiFePO4 BMS
 - 10 A main fuse as a starting value, to be verified
 - 15 A DC main switch
-- Geekworm Pi5-5V5APD terminal-block version for Pi 5
+- Geekworm Pi5-5V5APD for Pi 5
 - Pololu D24V50F5 for the screen
 
-The battery changed from the large 25 Ah pouch-cell idea because that cell face would take almost the whole case floor. The 33140 layout should leave more room for the other parts. The complete pack dimensions are not confirmed yet.
+The earlier pouch-cell battery idea was dropped because its large face would take much of the case floor. The 33140 layout should leave more room for the other parts. The complete pack dimensions are not confirmed yet.
 
-The current schematic file is still a planning drawing, not a complete electrical schematic. No routed PCB is ready for manufacturing yet.
+The KiCad file is only a planning drawing. I still need to draw the real schematic and run ERC/DRC before any PCB. No routed PCB is ready for manufacturing.
 
 The future PCB should distribute power and hold connectors, fuse and switch wiring. The converter boards are bought modules. Do not design a high-current switching regulator from scratch.
 
