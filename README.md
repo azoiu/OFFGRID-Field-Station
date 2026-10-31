@@ -29,16 +29,18 @@ I don't want a bigger case, so the parts have to fit in this one. The screen sho
 - [Wiring notes](docs/electrical-design.md)
 - [Power budget](docs/power-budget.md)
 - [Battery and charging plan](docs/battery-and-charging.md)
+- [Battery pack proposal](docs/battery-pack-spec.md)
 - [Power test plan](docs/power-test-plan.md)
 - [Design decisions](docs/design-decisions.md)
 - [Case fit notes](docs/case-fit.md)
 - [Work log](docs/work-log.md)
+- [KiCad power overview](hardware/power-overview/README.md)
 
 ## Current state
 
-I checked the main power requirements and made a first estimate. The rough load is around 11–19 W, with 15 W used for the first battery calculation.
+The first battery design I want to ask a supplier about is a **4S4P LiFePO4 pack, 12.8 V and 24 Ah**. It would use sixteen 32700 cells. The cell layout looks possible on paper, but the final pack dimensions including BMS and insulation are not confirmed.
 
-A 12.8 V 20 Ah LiFePO4 pack is a possible starting point. I have not selected or bought it because the dimensions still need to be checked against the case.
+I have added an editable KiCad power overview. It is a block diagram for planning, not a finished electrical schematic or PCB. Exact converters, fuses, connectors and wiring still need to be selected.
 
 The goal is about 10 hours of use. This is only an estimate until I build the system and test it.
 
