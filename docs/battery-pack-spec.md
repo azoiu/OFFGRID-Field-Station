@@ -2,7 +2,7 @@
 
 ## Selected V1 direction
 
-I am changing the battery choice. The 25 Ah pouch cells are very thin, but each cell is about 239 × 155 mm. A 4S pack would cover almost the whole floor of the case. That leaves too little room for the Pi, SSD, converters and wiring.
+I am changing the battery choice. The earlier 25 Ah pouch-cell idea would cover too much of the case floor.
 
 For V1 I choose a **supplier-built 4S1P LiFePO4 pack using four 3.2 V 15 Ah Gotion 33140 cylindrical cells**.
 
@@ -29,7 +29,7 @@ Four cells in series give:
 
 The four cylindrical cells can be arranged next to each other as a flat 2D group, rather than stacked into a tall block. The cell-only envelope is roughly 140 × 133 × 33.2 mm if arranged with all four cylinders parallel and side by side. The real pack will be larger after holders, insulation, BMS and wiring.
 
-This should leave more usable floor area than the large pouch-cell pack. It is not a confirmed fit yet. The supplier must send a dimensioned drawing and I must measure the actual case floor, including ribs and screw posts.
+This should leave more usable floor area than the earlier pouch-cell idea. It is not a confirmed fit yet. The supplier must send a dimensioned drawing and I must check the available space in the case.
 
 There is no confirmed finished-pack envelope yet. The pack supplier must send a dimensioned drawing. The cell-only envelope does not include the BMS, insulation, holder, terminals or wiring.
 
@@ -52,21 +52,37 @@ Ask for:
 
 The final BMS current rating, fuse and charger settings must match the supplier's datasheet.
 
+## Cell warning
+
+"33140"-type cells are sold with different specifications. Listed maximum discharge rates range from 1C to 5C, and listed weights are about 267–305 g. One seller lists a 33140 15 Ah cell as LMFP with a 3.6 V charge voltage. Names such as 32135, 32140 and 33140 are also mixed up in listings, and relabelled cells exist.
+
+I need the supplier to confirm in writing:
+- manufacturer name
+- exact datasheet and cell model
+- chemistry (LFP, matching the 4S LiFePO4 BMS)
+- continuous and peak discharge ratings
+
+I should not rely on the size or model name alone.
+
 ## Runtime estimate
 
-The nominal pack energy is 192 Wh.
+The nominal pack energy is 192 Wh. Using 80% usable energy and 90% converter efficiency gives:
 
-Using 80% usable energy and 90% converter efficiency:
-- At 15 W average system load: about 10.2 hours
-- At 19 W average system load: about 8.1 hours
+192 Wh × 0.8 × 0.9 = **138.24 Wh**.
 
-These are calculations, not measured runtime. Cold weather, battery ageing, screen brightness, CPU load and radio activity can reduce runtime. A realistic first target is **around 8 hours**, with 10 hours possible only at a lower average load.
+- At 12 W average load: about **11.5 hours**
+- At 15 W average load: about **9.2 hours**
+- At 19 W average load: about **7.3 hours**
+
+With local AI running, the average load may be about 19 W or more, so the estimate is about **7 hours or less**.
+
+These are calculations, not measured runtime. Cold weather, battery ageing, screen brightness, CPU load and radio activity can reduce runtime. A realistic first target is about **7–9 hours**, depending on the average load.
 
 ## Charging
 
-Use an external charger with a LiFePO4 profile. The final charge voltage must match the exact cell and pack datasheet. A 14.2 V charger preset must not be assumed to fully charge cells specified for 14.6 V. Confirm this with the pack builder before buying a charger.
+The charge voltage must be confirmed by the pack supplier. 14.2–14.4 V is common and gentler for a 4S LiFePO4 pack. 14.6 V is the cell maximum only if the final datasheet confirms 3.65 V per cell. The supplier must confirm the correct voltage and current for the exact pack.
 
-For car charging, use a programmable DC-DC charger and set its voltage and current only after the pack maker confirms them.
+For car charging, the Victron Orion-Tr Smart 12/12-18A can deliver up to 18 A. This is more than 1C (15 A) for this 15 Ah pack. Its current limit must be set much lower, for example about half of 1C, after the supplier confirms the permitted charge current. This is still to confirm.
 
 No 230 V mains wiring goes inside the case.
 
