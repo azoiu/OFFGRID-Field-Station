@@ -2,17 +2,20 @@
 
 Open `OFFGRID-Power.kicad_pro` and `OFFGRID-Power.kicad_sch` with KiCad.
 
-The selected power plan is:
+Current V1 power direction:
 
-- 4S1P LiFePO4 pouch pack, 12.8 V, 25 Ah (supplier-built)
+- supplier-built 4S1P LiFePO4 pack using four 3.2 V 15 Ah Gotion 33140 cells
+- 12.8 V nominal, 15 Ah, 192 Wh
 - matched 4S LiFePO4 BMS
 - 10 A main fuse as a starting value, to be verified
 - 15 A DC main switch
-- Geekworm Pi5-5V5APD terminal-block version for Pi 5 USB-C 5 V/5 A
-- Pololu D24V50F5 for the 5 V screen supply
+- Geekworm Pi5-5V5APD terminal-block version for Pi 5
+- Pololu D24V50F5 for the screen
 
-The drawing is a wiring architecture diagram. It is not yet a finished electrical schematic with verified component symbols, footprints and nets. No PCB has been designed yet.
+The battery changed from the large 25 Ah pouch-cell idea because that cell face would take almost the whole case floor. The 33140 layout should leave more room for the other parts. The complete pack dimensions are not confirmed yet.
 
-The DC/DC converter boards are bought as modules. The future PCB should only distribute power and hold the connectors/fuse/switch wiring. It should not contain a home-designed high-current switching regulator.
+The current schematic file is still a planning drawing, not a complete electrical schematic. No routed PCB is ready for manufacturing yet.
 
-Do not build hardware from the drawing alone. Check the final battery datasheet, connector polarity, current, fuse and wire ratings first.
+The future PCB should distribute power and hold connectors, fuse and switch wiring. The converter boards are bought modules. Do not design a high-current switching regulator from scratch.
+
+Do not build hardware from the drawing alone. Check the final battery datasheet, BMS, connector polarity, current, fuse and wire ratings first.
