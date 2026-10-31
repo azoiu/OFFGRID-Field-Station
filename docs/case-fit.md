@@ -1,6 +1,6 @@
 # Case fit notes
 
-I want to keep the SINOCASE SC001. The listed inside size is 255 × 190 × 85 mm. I measured about 58 mm usable depth in the bottom part.
+I want to keep the SINOCASE SC001. The approximate inside dimensions are about 250 × 185 × 55 mm. These are approximate dimensions, not a confirmed detailed measurement of every usable area.
 
 ## Screen
 
@@ -14,7 +14,13 @@ The new choice is a supplier-made 4S1P pack using four Gotion 33140 15 Ah LiFePO
 
 Reference: https://www.lifepo4cells.eu/en/cell/gotion-33140-15ah-3-2v-lifepo4-cell/
 
-The complete pack will be larger because of the BMS, holders, insulation and wiring. The supplier must provide a dimensioned drawing. The real flat area inside the case must be measured before ordering.
+The complete pack will be larger because of the BMS, holders, insulation and wiring. The supplier must provide a dimensioned drawing. I need to check the available flat area in the case before ordering.
+
+## Heat and cold
+
+The planned electronics may put about 15–20 W of heat inside the closed case, next to the battery. This is an estimate, not a measurement. I need to test the temperatures with the lid closed and the Pi under load. The Pi 5 can throttle when it gets hot.
+
+I also need to check the exact cell maker's allowed charge temperature range. LiFePO4 cells must not be charged below 0 °C unless the cell maker explicitly allows it.
 
 ## Layout plan
 
@@ -31,5 +37,6 @@ The complete pack will be larger because of the BMS, holders, insulation and wir
 - Hinge and screw mount positions.
 - Height available with the lid closed.
 - Space for cable bends, fuse and switch.
+- Temperature inside the closed case during a load test.
 
 The battery cell size looks promising, but the finished pack fit is not confirmed until the supplier sends its drawing and I check the case with a template.
