@@ -8,11 +8,11 @@
     (at 105 16 0)
     (effects (font (size 2.3 2.3)) (justify center))
   )
-  (text "Battery target: supplier-built 4S1P LiFePO4 pouch pack, 12.8V / 25Ah / 320Wh"
+  (text "Battery target: supplier-built 4S1P LiFePO4 cylindrical pack, 12.8V / 15Ah / 192Wh"
     (at 105 26 0)
     (effects (font (size 1.4 1.4)) (justify center))
   )
-  (text "Finished pack target: max 245 x 175 x 45mm, including BMS, insulation and leads"
+  (text "Finished pack dimensions not confirmed; supplier drawing required"
     (at 105 33 0)
     (effects (font (size 1.3 1.3)) (justify center))
   )
@@ -20,9 +20,9 @@
     (stroke (width 0.5) (type default)) (fill (type none)))
   (text "4S1P LiFePO4 PACK" (at 36 55 0)
     (effects (font (size 1.6 1.6)) (justify center)))
-  (text "12.8V / 25Ah" (at 36 64 0)
+  (text "12.8V / 15Ah" (at 36 64 0)
     (effects (font (size 1.5 1.5)) (justify center)))
-  (text "320Wh nominal" (at 36 73 0)
+  (text "192Wh nominal" (at 36 73 0)
     (effects (font (size 1.3 1.3)) (justify center)))
   (rectangle (start 78 48) (end 130 83)
     (stroke (width 0.5) (type default)) (fill (type none)))
@@ -83,7 +83,7 @@
   (text "*10A fuse is a starting value. Verify with measured current, cable size and converter input requirements."
     (at 105 207 0)
     (effects (font (size 1.2 1.2)) (justify center)))
-  (text "Planning diagram only. Not an electrical schematic or PCB. Do not build from this page."
+  (text "Planning diagram only. Not an electrical schematic or PCB. Check Geekworm output voltage under load. Do not build from this page."
     (at 105 216 0)
     (effects (font (size 1.2 1.2)) (justify center)))
   (sheet_instances (path "/" (page "1")))
