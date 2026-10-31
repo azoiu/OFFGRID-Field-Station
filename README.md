@@ -40,7 +40,7 @@ The selected design target is a supplier-made 4S1P LiFePO4 pouch pack, 12.8 V an
 
 The Pi uses a Geekworm Pi5-5V5APD module. The screen uses a Pololu D24V50F5 converter. Exact battery connector and final fuse sizing still need verification.
 
-The goal is about 10 hours of use. This is an estimate until I build and test it.
+The first runtime estimate is about 8–10 hours, depending on load. This must be tested.
 
 ## Maybe later
 
