@@ -37,14 +37,14 @@ This is the current parts plan. Prices can change. The full list is in [BOM.csv]
 | BMS | 1 | Matched 4S LiFePO4 BMS, supplied with pack |
 | Main fuse | 1 | 10 A automotive blade fuse, verify after current test |
 | Main switch | 1 | DC rated, at least 15 A at 16 V |
-| Pi power module | 1 | Geekworm Pi5-5V5APD terminal-block version |
+| Pi power module | 1 | Geekworm Pi5-5V5APD |
 | Screen converter | 1 | Pololu D24V50F5 |
 | Wall charger | 1 | LiFePO4 charger to select after pack maker confirms charge profile |
 | Car charger | 1 | Programmable DC-DC charger, settings to be confirmed |
 
-Battery cell reference: [Topwell 3.2 V 25 Ah LiFePO4 pouch cell](https://www.lifepo4cells.eu/en/cell/gotion-33140-15ah-3-2v-lifepo4-cell/).
+Battery cell reference: [Gotion 33140 3.2 V 15 Ah LiFePO4 cell](https://www.lifepo4cells.eu/en/cell/gotion-33140-15ah-3-2v-lifepo4-cell/).
 
-The finished battery must be no larger than about 155 × 145 × 42 mm (target only). This is a supplier requirement, not a confirmed product size. Do not order before getting a dimensioned drawing and checking the real case.
+The finished battery dimensions are not known. The supplier must provide a dimensioned drawing. Do not order before checking the drawing against the available case space.
 
 Power module references:
 - [Geekworm Pi5-5V5APD](https://wiki.geekworm.com/Pi5-5V5APD)
@@ -54,7 +54,7 @@ Power module references:
 
 ## Important
 
-The battery, BMS and chargers must be treated as one matched system. The supplier must confirm the maximum charge voltage, charge temperature, discharge current and protection details. The 10 A fuse and 1.5 mm² wire are starting design values and must be verified before use.
+The battery, BMS and chargers must be treated as one matched system. The supplier must confirm the maximum charge voltage, charge temperature, discharge current and protection details. The 10 A fuse and wire size are starting design values and must be verified before use.
 
 ## Still to check
 
@@ -63,3 +63,4 @@ The battery, BMS and chargers must be treated as one matched system. The supplie
 - Exact battery connector
 - Actual internal case dimensions and mounting points
 - Real power draw and fuse/wire sizing
+- Final charger current and charge voltage
