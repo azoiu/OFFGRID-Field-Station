@@ -31,6 +31,8 @@ I don't want a bigger case, so the parts have to fit in this one. The screen sho
 - [Battery and charging plan](docs/battery-and-charging.md)
 - [Power test plan](docs/power-test-plan.md)
 - [Design decisions](docs/design-decisions.md)
+- [Case fit notes](docs/case-fit.md)
+- [Work log](docs/work-log.md)
 
 ## Current state
 
