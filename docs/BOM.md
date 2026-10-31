@@ -39,8 +39,8 @@ This is the current parts plan. Prices can change. The full list is in [BOM.csv]
 | Main switch | 1 | DC rated, at least 15 A at 16 V |
 | Pi power module | 1 | Geekworm Pi5-5V5APD terminal-block version |
 | Screen converter | 1 | Pololu D24V50F5 |
-| Wall charger | 1 | External 4S LiFePO4 charger, 5 A target, final voltage matched to pack |
-| Car charger | 1 | Victron Orion-Tr Smart DC-DC charger, exact model to match vehicle and battery |
+| Wall charger | 1 | Victron Blue Smart IP65 12/5, only if pack maker approves 14.2 V Li-ion mode |
+| Car charger | 1 | Victron Orion-Tr Smart 12/12-18A isolated, configure for pack and limit to 5 A |
 
 Battery cell reference: [Topwell 3.2 V 25 Ah LiFePO4 pouch cell](https://www.topwellpower.com/products/5c-32v-20ah-lithium-iron-phosphate-pouch-cell).
 
@@ -49,16 +49,17 @@ The finished battery must be no larger than 245 × 175 × 45 mm. This is a suppl
 Power module references:
 - [Geekworm Pi5-5V5APD](https://wiki.geekworm.com/Pi5-5V5APD)
 - [Pololu D24V50F5](https://www.pololu.com/product/2851/specs)
+- [Victron Blue Smart IP65 12/5](https://www.victronenergy.com/media/pg/Blue_Smart_IP65_Charger_230V_manual/en/technical-specifications---bsc---psc.html)
+- [Victron Orion-Tr Smart 12/12-18A](https://www.victronenergy.com/media/pg/Orion-Tr_Smart_DC-DC_Charger_-_Isolated/en/specifications.html)
 
 ## Important
 
-The battery, BMS and chargers must be bought as a matched system. The supplier must confirm the maximum charge voltage, charge temperature, discharge current and protection details. The 10 A fuse and 1.5 mm² wire are starting design values and must be verified before use.
+The battery, BMS and chargers must be treated as one matched system. The supplier must confirm the maximum charge voltage, charge temperature, discharge current and protection details. The 10 A fuse and 1.5 mm² wire are starting design values and must be verified before use.
 
 ## Still to check
 
 - Exact GPS breakout board
 - Screen power connector and polarity
 - Exact battery connector
-- Exact Victron car charger variant
-- Internal case dimensions and mounting points
+- Actual internal case dimensions and mounting points
 - Real power draw and fuse/wire sizing
